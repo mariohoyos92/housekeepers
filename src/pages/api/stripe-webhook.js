@@ -17,7 +17,6 @@ export default async (req, res) => {
 
   try {
     const rawBody = await getRawBody(req);
-
     const stripeEvent = stripe.webhooks.constructEvent(
       rawBody,
       headers["stripe-signature"],

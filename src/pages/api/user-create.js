@@ -1,6 +1,7 @@
 const requireAuth = require("./_require-auth.js");
+const { createUser } = require("./_repository/user-repository.js");
 
-export default requireAuth((req, res) => {
+export default requireAuth(async (req, res) => {
   const authUser = req.user;
   const body = req.body;
 
@@ -14,7 +15,7 @@ export default requireAuth((req, res) => {
 
   // Create user in database here
   // For now we'll return a fake user containing data we passed in request
-  const user = body;
+  const user = await createUser(req.body);
 
   res.send({
     status: "success",

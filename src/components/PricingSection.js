@@ -15,19 +15,9 @@ function PricingSection(props) {
 
   const items = [
     {
-      id: "starter",
-      name: "Starter",
-      price: "10",
-      perks: [
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit",
-        "Integer molestie lorem at massa",
-      ],
-    },
-    {
-      id: "pro",
-      name: "Pro",
-      price: "20",
+      id: "monthly",
+      name: "Monthly",
+      price: "30",
       perks: [
         "Lorem ipsum dolor sit amet",
         "Consectetur adipiscing elit",
@@ -37,9 +27,9 @@ function PricingSection(props) {
       ],
     },
     {
-      id: "business",
-      name: "Business",
-      price: "50",
+      id: "yearly",
+      name: "Yearly",
+      price: "300",
       perks: [
         "Lorem ipsum dolor sit amet",
         "Consectetur adipiscing elit",

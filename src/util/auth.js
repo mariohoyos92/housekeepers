@@ -312,16 +312,6 @@ const allProviders = [
       display: "popup",
     },
   },
-  {
-    id: "twitter.com",
-    name: "twitter",
-    providerMethod: firebase.auth.TwitterAuthProvider,
-  },
-  {
-    id: "github.com",
-    name: "github",
-    providerMethod: firebase.auth.GithubAuthProvider,
-  },
 ];
 
 // Connect analytics session to current user.uid
