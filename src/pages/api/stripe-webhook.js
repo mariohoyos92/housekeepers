@@ -1,5 +1,7 @@
 const getRawBody = require("raw-body");
-const { updateUserByCustomerId } = require("./_db.js");
+const {
+  updateUserByStripeCustomerId,
+} = require("./_repository/user-repository");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: process.env.STRIPE_API_VERSION,
@@ -36,7 +38,7 @@ export default async (req, res) => {
         );
 
         // Update the current user
-        await updateUserByCustomerId(object.customer, {
+        await updateUserByStripeCustomerId(object.customer, {
           stripeSubscriptionId: subscription.id,
           // Store the priceId (or "plan") for this subscription
           stripePriceId: subscription.items.data[0].price.id,
@@ -51,7 +53,7 @@ export default async (req, res) => {
         // in case it was previously "trialing" or "past_due".
         // We skip if amount due is 0 as that's the case at start of trial period.
         if (object.amount_due > 0) {
-          await updateUserByCustomerId(object.customer, {
+          await updateUserByStripeCustomerId(object.customer, {
             stripeSubscriptionStatus: "active",
           });
         }
@@ -60,14 +62,14 @@ export default async (req, res) => {
 
       case "invoice.payment_failed":
         // If a payment failed we update stored subscription status to "past_due"
-        await updateUserByCustomerId(object.customer, {
+        await updateUserByStripeCustomerId(object.customer, {
           stripeSubscriptionStatus: "past_due",
         });
 
         break;
 
       case "customer.subscription.updated":
-        await updateUserByCustomerId(object.customer, {
+        await updateUserByStripeCustomerId(object.customer, {
           stripePriceId: object.items.data[0].price.id,
           stripeSubscriptionStatus: object.status,
         });
@@ -81,7 +83,7 @@ export default async (req, res) => {
         // Keep in mind this won't be called right away if "Cancel at end of billing period" is selected
         // in Billing Portal settings (https://dashboard.stripe.com/settings/billing/portal). Instead you'll
         // get a "customer.subscription.updated" event with a cancel_at_period_end value.
-        await updateUserByCustomerId(object.customer, {
+        await updateUserByStripeCustomerId(object.customer, {
           stripeSubscriptionStatus: "canceled",
         });
 

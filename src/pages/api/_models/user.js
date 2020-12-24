@@ -3,6 +3,10 @@ const { connectToPG } = require("../_db-connection/pg-connection.js");
 const { Model } = connectToPG();
 
 export class UserModel extends Model {
+  static get idColumn() {
+    return "uid";
+  }
+
   static get tableName() {
     return "users";
   }

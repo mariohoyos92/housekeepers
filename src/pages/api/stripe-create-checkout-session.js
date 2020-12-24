@@ -1,5 +1,5 @@
 const requireAuth = require("./_require-auth.js");
-const { getUser, updateUser } = require("./_db.js");
+const { getUserById, updateUser } = require("./_repository/user-repository");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: process.env.STRIPE_API_VERSION,
@@ -17,7 +17,7 @@ export default requireAuth(async (req, res) => {
   }
 
   try {
-    let { email, stripeCustomerId } = await getUser(user.uid);
+    let { email, stripeCustomerId } = await getUserById(user.uid);
 
     // If user does not already have a stripeCustomerId then create a customer in Stripe
     if (!stripeCustomerId) {

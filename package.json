@@ -26,7 +26,8 @@
     "react-bootstrap": "1.0.0-beta.16",
     "react-dom": "16.12.0",
     "react-hook-form": "4.10.1",
-    "react-query": "2.12.1"
+    "react-query": "2.12.1",
+    "stripe": "^8.129.0"
   },
   "scripts": {
     "dev": "next dev",
