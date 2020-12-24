@@ -1,4 +1,5 @@
-// Connect to your database of choice here
+
+const { getUserById } = require("./_repository/user-repository")
 // For now all methods just return some fake data
 
 const fakeUserData = {
@@ -22,13 +23,9 @@ function updateUser(uid, data) {
 // Get user by uid
 function getUser(uid) {
   // Fetch user from database here
-  const user = {
-    ...fakeUserData,
-    uid: uid,
-  };
-
+  const user = await getUserById(uid);
   return user;
-}
+};
 
 // Get user by stripeCustomerId
 function getUserByCustomerId(customerId) {

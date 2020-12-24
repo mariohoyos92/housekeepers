@@ -1,6 +1,8 @@
+import { getUserById } from "./_repository/user-repository.js";
+
 const requireAuth = require("./_require-auth.js");
 
-export default requireAuth((req, res) => {
+export default requireAuth(async (req, res) => {
   const authUser = req.user;
   const { uid } = req.query;
 
@@ -15,11 +17,7 @@ export default requireAuth((req, res) => {
 
   // Fetch user from database here
   // For now we'll just return a fake user
-  const user = {
-    uid: uid,
-    email: "fake-user@gmail.com",
-    name: "Bob",
-  };
+  const user = await getUserById(uid);
 
   res.send({
     status: "success",
