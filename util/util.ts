@@ -1,6 +1,6 @@
 import firebase from "./firebase";
 
-export async function apiRequest(path, method = "GET", data) {
+export async function apiRequest(path: string, method = "GET", data?: any) {
   const accessToken = firebase.auth().currentUser ? await firebase.auth().currentUser.getIdToken() : undefined;
 
   return fetch(`/api/${path}`, {
@@ -19,16 +19,18 @@ export async function apiRequest(path, method = "GET", data) {
           firebase.auth().signOut();
         }
 
-        throw new CustomError(response.code, response.message);
+        throw CustomError(response.code, response.message);
       } else {
         return response.data;
       }
     });
 }
 
+type CustomErrorType = Error & { code?: string };
+
 // Create an Error with custom message and code
-export function CustomError(code, message) {
-  const error = new Error(message);
+export function CustomError(code: string, message) {
+  const error: CustomErrorType = new Error(message);
   error.code = code;
   return error;
 }
