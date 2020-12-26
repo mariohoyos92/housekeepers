@@ -1,6 +1,10 @@
+import { NextApiResponse } from "next";
+import { ResponseFormat } from "./common";
+import { UserModel } from "./_models/user";
+import { updateUser } from "./_repository/user-repository";
 import requireAuth from "./_require-auth";
 
-export default requireAuth((req, res) => {
+export default requireAuth(async (req, res: NextApiResponse<ResponseFormat<UserModel>>) => {
   const authUser = req.user;
   const body = req.body;
   const { uid } = req.query;
@@ -15,10 +19,7 @@ export default requireAuth((req, res) => {
 
   // Update user in database here
   // For now we'll return a fake user containing data we passed in request
-  const user = {
-    uid: uid,
-    ...body,
-  };
+  const user = await updateUser(uid, body);
 
   res.send({
     status: "success",

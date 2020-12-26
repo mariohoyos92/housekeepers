@@ -1,7 +1,5 @@
 const getRawBody = require("raw-body");
-const {
-  updateUserByStripeCustomerId,
-} = require("./_repository/user-repository");
+const { updateUserByStripeCustomerId } = require("./_repository/user-repository");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: process.env.STRIPE_API_VERSION,
@@ -33,9 +31,7 @@ export default async (req, res) => {
     switch (stripeEvent.type) {
       case "checkout.session.completed":
         // Fetch subscription
-        const subscription = await stripe.subscriptions.retrieve(
-          object.subscription
-        );
+        const subscription = await stripe.subscriptions.retrieve(object.subscription);
 
         // Update the current user
         await updateUserByStripeCustomerId(object.customer, {

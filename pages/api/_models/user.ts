@@ -1,8 +1,17 @@
-const { connectToPG } = require("../_db-connection/pg-connection.js");
+import { connectToPG } from "../_db-connection/pg-connection";
 
 const { Model } = connectToPG();
 
 export class UserModel extends Model {
+  uid!: string;
+  email!: string;
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  stripePriceId?: string;
+  stripeSubscriptionStatus?: string;
+  created!: string;
+  lastModified!: string;
+
   static get idColumn() {
     return "uid";
   }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import FormField from '../components/FormField';
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import { useAuth } from '../util/auth';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import FormField from "../components/FormField";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import { useAuth } from "../util/auth";
+import { useForm } from "react-hook-form";
 
 function SettingsGeneral(props) {
   const auth = useAuth();
@@ -21,21 +21,21 @@ function SettingsGeneral(props) {
       .then(() => {
         // Set success status
         props.onStatus({
-          type: 'success',
-          message: 'Your profile has been updated',
+          type: "success",
+          message: "Your profile has been updated",
         });
       })
       .catch(error => {
-        if (error.code === 'auth/requires-recent-login') {
+        if (error.code === "auth/requires-recent-login") {
           props.onStatus({
-            type: 'requires-recent-login',
+            type: "requires-recent-login",
             // Resubmit after reauth flow
             callback: () => onSubmit(data),
           });
         } else {
           // Set error status
           props.onStatus({
-            type: 'error',
+            type: "error",
             message: error.message,
           });
         }
@@ -58,7 +58,7 @@ function SettingsGeneral(props) {
           error={errors.name}
           size="lg"
           inputRef={register({
-            required: 'Please enter your name',
+            required: "Please enter your name",
           })}
         />
       </Form.Group>
@@ -72,7 +72,7 @@ function SettingsGeneral(props) {
           error={errors.email}
           size="lg"
           inputRef={register({
-            required: 'Please enter your email',
+            required: "Please enter your email",
           })}
         />
       </Form.Group>

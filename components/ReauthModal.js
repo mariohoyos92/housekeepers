@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import FormAlert from '../components/FormAlert';
-import Form from 'react-bootstrap/Form';
-import FormField from '../components/FormField';
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import AuthSocial from '../components/AuthSocial';
-import { useAuth } from '../util/auth';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import FormAlert from "../components/FormAlert";
+import Form from "react-bootstrap/Form";
+import FormField from "../components/FormField";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import AuthSocial from "../components/AuthSocial";
+import { useAuth } from "../util/auth";
+import { useForm } from "react-hook-form";
 
 function ReauthModal(props) {
   const auth = useAuth();
@@ -33,7 +33,7 @@ function ReauthModal(props) {
         setPending(false);
         // Show error alert message
         setFormAlert({
-          type: 'error',
+          type: "error",
           message: error.message,
         });
       });
@@ -45,7 +45,7 @@ function ReauthModal(props) {
       <Modal.Body>
         {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} />}
 
-        {props.provider === 'password' && (
+        {props.provider === "password" && (
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formConfirmPass">
               <FormField
@@ -55,7 +55,7 @@ function ReauthModal(props) {
                 placeholder="Password"
                 error={errors.pass}
                 inputRef={register({
-                  required: 'Please enter your password',
+                  required: "Please enter your password",
                 })}
               />
             </Form.Group>
@@ -71,7 +71,7 @@ function ReauthModal(props) {
           </Form>
         )}
 
-        {props.provider !== 'password' && (
+        {props.provider !== "password" && (
           <AuthSocial
             type="signin"
             buttonText="Sign in"
@@ -83,7 +83,7 @@ function ReauthModal(props) {
             }}
             onError={message => {
               setFormAlert({
-                type: 'error',
+                type: "error",
                 message: message,
               });
             }}

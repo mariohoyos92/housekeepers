@@ -1,38 +1,38 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Auth from '../components/Auth';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Auth from "../components/Auth";
 
 function AuthSection(props) {
   // Values for each auth type
   const allTypeValues = {
     signin: {
       // Top title
-      title: 'Welcome back',
+      title: "Welcome back",
       // Submit button text
-      buttonText: 'Sign in',
+      buttonText: "Sign in",
       // Link text to other auth types
-      linkTextSignup: 'Create an account',
-      linkTextForgotpass: 'Forgot Password?',
+      linkTextSignup: "Create an account",
+      linkTextForgotpass: "Forgot Password?",
     },
     signup: {
-      title: 'Get yourself an account',
-      buttonText: 'Sign up',
-      linkTextSignin: 'Sign in',
+      title: "Get yourself an account",
+      buttonText: "Sign up",
+      linkTextSignin: "Sign in",
     },
     forgotpass: {
-      title: 'Get a new password',
-      buttonText: 'Reset password',
+      title: "Get a new password",
+      buttonText: "Reset password",
     },
     changepass: {
-      title: 'Choose a new password',
-      buttonText: 'Change password',
+      title: "Choose a new password",
+      buttonText: "Change password",
     },
   };
 
   // Ensure we have a valid auth type
-  const currentType = allTypeValues[props.type] ? props.type : 'signup';
+  const currentType = allTypeValues[props.type] ? props.type : "signup";
 
   // Get values for current auth type
   const typeValues = allTypeValues[currentType];
@@ -47,7 +47,7 @@ function AuthSection(props) {
     >
       <Container
         style={{
-          maxWidth: '450px',
+          maxWidth: "450px",
         }}
       >
         <SectionHeader

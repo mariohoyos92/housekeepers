@@ -16,10 +16,10 @@ export default (req, res) => {
         status: "pending",
       },
     })
-    .then((result) => {
+    .then(result => {
       res.send({ status: "success" });
     })
-    .catch((error) => {
+    .catch(error => {
       console.log("newsletter error", error);
 
       // If error due to email already in list then return success response

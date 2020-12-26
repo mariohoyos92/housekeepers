@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PageLoader from '../components/PageLoader';
-import { useAuth } from '../util/auth';
-import { useRouter } from 'next/router';
-import { redirectToBilling } from '../util/stripe.js';
+import React, { useEffect, useState } from "react";
+import PageLoader from "../components/PageLoader";
+import { useAuth } from "../util/auth";
+import { useRouter } from "next/router";
+import { redirectToBilling } from "../util/stripe.js";
 
 function SettingsBilling(props) {
   const router = useRouter();
@@ -16,14 +16,14 @@ function SettingsBilling(props) {
       redirectToBilling().catch(error => {
         setLoading(false);
         props.onStatus({
-          type: 'error',
+          type: "error",
           message: error.message,
         });
       });
     } else {
       // Otherwise go to pricing so they can
       // purchase a plan
-      router.replace('/pricing');
+      router.replace("/pricing");
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +34,7 @@ function SettingsBilling(props) {
       {loading && (
         <PageLoader
           style={{
-            height: '50px',
+            height: "50px",
           }}
         />
       )}

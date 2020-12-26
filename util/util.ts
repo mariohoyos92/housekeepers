@@ -1,9 +1,7 @@
 import firebase from "./firebase";
 
 export async function apiRequest(path, method = "GET", data) {
-  const accessToken = firebase.auth().currentUser
-    ? await firebase.auth().currentUser.getIdToken()
-    : undefined;
+  const accessToken = firebase.auth().currentUser ? await firebase.auth().currentUser.getIdToken() : undefined;
 
   return fetch(`/api/${path}`, {
     method: method,
@@ -13,8 +11,8 @@ export async function apiRequest(path, method = "GET", data) {
     },
     body: data ? JSON.stringify(data) : undefined,
   })
-    .then((response) => response.json())
-    .then((response) => {
+    .then(response => response.json())
+    .then(response => {
       if (response.status === "error") {
         // Automatically signout user if accessToken is no longer valid
         if (response.code === "auth/invalid-user-token") {

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import Badge from 'react-bootstrap/Badge';
-import { useAuth } from '../util/auth';
-import '../components/AuthSocial.scss';
+import React, { useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import Badge from "react-bootstrap/Badge";
+import { useAuth } from "../util/auth";
+import "../components/AuthSocial.scss";
 
 function AuthSocial(props) {
   const auth = useAuth();
@@ -11,7 +11,7 @@ function AuthSocial(props) {
   const [lastUsed, setLastUsed] = useState(null);
 
   const providerDisplayNames = {
-    google: 'Google',
+    google: "Google",
   };
 
   const onSigninWithProvider = provider => {
@@ -19,7 +19,7 @@ function AuthSocial(props) {
     auth
       .signinWithProvider(provider)
       .then(user => {
-        localStorage.setItem('lastUsedAuthProvider', provider);
+        localStorage.setItem("lastUsedAuthProvider", provider);
         props.onAuth(user);
       })
       .catch(error => {
@@ -31,7 +31,7 @@ function AuthSocial(props) {
   // Get value of last used auth provider
   useEffect(() => {
     if (props.showLastUsed) {
-      const lastUsed = window.localStorage.getItem('lastUsedAuthProvider');
+      const lastUsed = window.localStorage.getItem("lastUsedAuthProvider");
       if (lastUsed) {
         setLastUsed(lastUsed);
       }
@@ -78,8 +78,8 @@ function AuthSocial(props) {
               variant="warning"
               className="position-absolute font-weight-normal"
               style={{
-                top: '-6px',
-                right: '-6px',
+                top: "-6px",
+                right: "-6px",
                 opacity: 0.7,
               }}
             >

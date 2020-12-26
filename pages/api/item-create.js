@@ -1,4 +1,4 @@
-const requireAuth = require('./_require-auth');
+const requireAuth = require("./_require-auth");
 
 export default requireAuth((req, res) => {
   const authUser = req.user;
@@ -7,8 +7,8 @@ export default requireAuth((req, res) => {
   // Make sure authenticated user is not setting someone else as the owner
   if (body.owner !== authUser.uid) {
     return res.send({
-      status: 'error',
-      message: 'You can only set yourself as the item owner',
+      status: "error",
+      message: "You can only set yourself as the item owner",
     });
   }
 
@@ -17,7 +17,7 @@ export default requireAuth((req, res) => {
   const item = body;
 
   res.send({
-    status: 'success',
+    status: "success",
     data: item,
   });
 });

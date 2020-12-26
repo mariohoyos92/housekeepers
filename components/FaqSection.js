@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import '../components/FaqSection.scss';
+import React, { useState } from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import "../components/FaqSection.scss";
 
 function FaqSection(props) {
   // Object to store expanded state for all items
@@ -17,28 +17,28 @@ function FaqSection(props) {
 
   const items = [
     {
-      question: 'Integer ornare neque mauris?',
+      question: "Integer ornare neque mauris?",
       answer:
-        'Integer ornare neque mauris, ac vulputate lacus venenatis et. Pellentesque ut ultrices purus. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.',
+        "Integer ornare neque mauris, ac vulputate lacus venenatis et. Pellentesque ut ultrices purus. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.",
     },
     {
-      question: 'Lorem ipsum dolor sit amet?',
+      question: "Lorem ipsum dolor sit amet?",
       answer:
-        'Nunc nulla mauris, laoreet vel cursus lacinia, consectetur sit amet tellus. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.',
+        "Nunc nulla mauris, laoreet vel cursus lacinia, consectetur sit amet tellus. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.",
     },
     {
-      question: 'Suspendisse ut tincidunt?',
+      question: "Suspendisse ut tincidunt?",
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis, metus et mattis ullamcorper. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis, metus et mattis ullamcorper. Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.",
     },
     {
-      question: 'Ut enim ad minim veniam?',
-      answer: 'Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.',
+      question: "Ut enim ad minim veniam?",
+      answer: "Suspendisse ut tincidunt eros. In velit mi, rhoncus dictum neque a, tincidunt lobortis justo.",
     },
     {
-      question: 'In velit mi, rhoncus dictum neque?',
+      question: "In velit mi, rhoncus dictum neque?",
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
     },
   ];
 
@@ -63,7 +63,7 @@ function FaqSection(props) {
           >
             <h4>
               <span className="text-primary mr-3">
-                <i className={'fas' + (expanded[index] ? ' fa-minus' : '') + (!expanded[index] ? ' fa-plus' : '')} />
+                <i className={"fas" + (expanded[index] ? " fa-minus" : "") + (!expanded[index] ? " fa-plus" : "")} />
               </span>
               {item.question}
             </h4>

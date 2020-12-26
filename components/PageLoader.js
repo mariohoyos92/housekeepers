@@ -1,7 +1,7 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import Spinner from "react-bootstrap/Spinner";
 
 function PageLoader(props) {
   const { style, children, ...otherProps } = props;
@@ -11,7 +11,7 @@ function PageLoader(props) {
       bg="white"
       className="d-flex justify-content-center align-items-center"
       style={{
-        height: '400px',
+        height: "400px",
         ...style,
       }}
       {...otherProps}

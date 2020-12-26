@@ -1,7 +1,10 @@
+import { NextApiResponse } from "next";
+import { ResponseFormat } from "./common.js";
+import { UserModel } from "./_models/user.js";
 import { getUserById } from "./_repository/user-repository.js";
 import requireAuth from "./_require-auth";
 
-export default requireAuth(async (req, res) => {
+export default requireAuth(async (req, res: NextApiResponse<ResponseFormat<UserModel>>) => {
   const authUser = req.user;
   const { uid } = req.query;
 

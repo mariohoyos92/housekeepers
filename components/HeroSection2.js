@@ -1,7 +1,7 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
 
 function HeroSection2(props) {
   return (

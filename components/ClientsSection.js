@@ -1,31 +1,31 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function ClientsSection(props) {
   const items = [
     {
-      name: 'Instagram',
-      image: 'https://uploads.divjoy.com/logo-instagram.svg',
-      width: '150px',
+      name: "Instagram",
+      image: "https://uploads.divjoy.com/logo-instagram.svg",
+      width: "150px",
     },
     {
-      name: 'Slack',
-      image: 'https://uploads.divjoy.com/logo-slack.svg',
-      width: '135px',
+      name: "Slack",
+      image: "https://uploads.divjoy.com/logo-slack.svg",
+      width: "135px",
     },
     {
-      name: 'Tinder',
-      image: 'https://uploads.divjoy.com/logo-tinder.svg',
-      width: '90px',
+      name: "Tinder",
+      image: "https://uploads.divjoy.com/logo-tinder.svg",
+      width: "90px",
     },
     {
-      name: 'Spotify',
-      image: 'https://uploads.divjoy.com/logo-spotify.svg',
-      width: '135px',
+      name: "Spotify",
+      image: "https://uploads.divjoy.com/logo-spotify.svg",
+      width: "135px",
     },
   ];
 

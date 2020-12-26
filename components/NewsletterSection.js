@@ -1,10 +1,10 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SectionHeader from '../components/SectionHeader';
-import Newsletter from '../components/Newsletter';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SectionHeader from "../components/SectionHeader";
+import Newsletter from "../components/Newsletter";
 
 function NewsletterSection(props) {
   return (

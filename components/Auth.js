@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import FormAlert from '../components/FormAlert';
-import AuthForm from '../components/AuthForm';
-import AuthSocial from '../components/AuthSocial';
-import AuthFooter from '../components/AuthFooter';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import FormAlert from "../components/FormAlert";
+import AuthForm from "../components/AuthForm";
+import AuthSocial from "../components/AuthSocial";
+import AuthFooter from "../components/AuthFooter";
+import { useRouter } from "next/router";
 
 function Auth(props) {
   const router = useRouter();
   const [formAlert, setFormAlert] = useState(null);
 
-  const handleAuth = (user) => {
+  const handleAuth = user => {
     router.push(props.afterAuthPath);
   };
 
-  const handleFormAlert = (data) => {
+  const handleFormAlert = data => {
     setFormAlert(data);
   };
 
@@ -23,7 +23,7 @@ function Auth(props) {
 
       <AuthForm type={props.type} typeValues={props.typeValues} onAuth={handleAuth} onFormAlert={handleFormAlert} />
 
-      {['signup', 'signin'].includes(props.type) && (
+      {["signup", "signin"].includes(props.type) && (
         <>
           {props.providers && props.providers.length && (
             <>
@@ -34,9 +34,9 @@ function Auth(props) {
                 providers={props.providers}
                 showLastUsed={true}
                 onAuth={handleAuth}
-                onError={(message) => {
+                onError={message => {
                   handleFormAlert({
-                    type: 'error',
+                    type: "error",
                     message: message,
                   });
                 }}

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Section from '../components/Section';
-import ReauthModal from '../components/ReauthModal';
-import SettingsNav from '../components/SettingsNav';
-import Container from 'react-bootstrap/Container';
-import FormAlert from '../components/FormAlert';
-import SettingsGeneral from '../components/SettingsGeneral';
-import SettingsPassword from '../components/SettingsPassword';
-import SettingsBilling from '../components/SettingsBilling';
-import { useAuth } from '../util/auth';
+import React, { useState } from "react";
+import Section from "../components/Section";
+import ReauthModal from "../components/ReauthModal";
+import SettingsNav from "../components/SettingsNav";
+import Container from "react-bootstrap/Container";
+import FormAlert from "../components/FormAlert";
+import SettingsGeneral from "../components/SettingsGeneral";
+import SettingsPassword from "../components/SettingsPassword";
+import SettingsBilling from "../components/SettingsBilling";
+import { useAuth } from "../util/auth";
 
 function SettingsSection(props) {
   const auth = useAuth();
@@ -25,13 +25,13 @@ function SettingsSection(props) {
     billing: true,
   };
 
-  const section = validSections[props.section] ? props.section : 'general';
+  const section = validSections[props.section] ? props.section : "general";
 
   // Handle status of type "success", "error", or "requires-recent-login"
   // We don't treat "requires-recent-login" as an error as we handle it
   // gracefully by taking the user through a re-authentication flow.
   const handleStatus = ({ type, message, callback }) => {
-    if (type === 'requires-recent-login') {
+    if (type === "requires-recent-login") {
       // First clear any existing message
       setFormAlert(null);
       // Then update state to show re-authentication modal
@@ -69,7 +69,7 @@ function SettingsSection(props) {
       <Container
         className="mt-5"
         style={{
-          maxWidth: '450px',
+          maxWidth: "450px",
         }}
       >
         {formAlert && (
@@ -77,15 +77,15 @@ function SettingsSection(props) {
             type={formAlert.type}
             message={formAlert.message}
             className="mx-auto mb-4"
-            style={{ maxWidth: '450px' }}
+            style={{ maxWidth: "450px" }}
           />
         )}
 
-        {section === 'general' && <SettingsGeneral onStatus={handleStatus} />}
+        {section === "general" && <SettingsGeneral onStatus={handleStatus} />}
 
-        {section === 'password' && <SettingsPassword onStatus={handleStatus} />}
+        {section === "password" && <SettingsPassword onStatus={handleStatus} />}
 
-        {section === 'billing' && <SettingsBilling onStatus={handleStatus} />}
+        {section === "billing" && <SettingsBilling onStatus={handleStatus} />}
       </Container>
     </Section>
   );

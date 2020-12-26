@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import FormField from '../components/FormField';
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import { useAuth } from '../util/auth';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import FormField from "../components/FormField";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import { useAuth } from "../util/auth";
+import { useForm } from "react-hook-form";
 
 function AuthForm(props) {
   const auth = useAuth();
@@ -30,8 +30,8 @@ function AuthForm(props) {
         setPending(false);
         // Show success alert message
         props.onFormAlert({
-          type: 'success',
-          message: 'Password reset email sent',
+          type: "success",
+          message: "Password reset email sent",
         });
       });
     },
@@ -40,8 +40,8 @@ function AuthForm(props) {
         setPending(false);
         // Show success alert message
         props.onFormAlert({
-          type: 'success',
-          message: 'Your password has been changed',
+          type: "success",
+          message: "Your password has been changed",
         });
       });
     },
@@ -60,7 +60,7 @@ function AuthForm(props) {
       setPending(false);
       // Show error alert message
       props.onFormAlert({
-        type: 'error',
+        type: "error",
         message: error.message,
       });
     });
@@ -68,7 +68,7 @@ function AuthForm(props) {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      {['signup', 'signin', 'forgotpass'].includes(props.type) && (
+      {["signup", "signin", "forgotpass"].includes(props.type) && (
         <Form.Group controlId="formEmail">
           <FormField
             size="lg"
@@ -77,13 +77,13 @@ function AuthForm(props) {
             placeholder="Email"
             error={errors.email}
             inputRef={register({
-              required: 'Please enter an email',
+              required: "Please enter an email",
             })}
           />
         </Form.Group>
       )}
 
-      {['signup', 'signin', 'changepass'].includes(props.type) && (
+      {["signup", "signin", "changepass"].includes(props.type) && (
         <Form.Group controlId="formPassword">
           <FormField
             size="lg"
@@ -92,13 +92,13 @@ function AuthForm(props) {
             placeholder="Password"
             error={errors.pass}
             inputRef={register({
-              required: 'Please enter a password',
+              required: "Please enter a password",
             })}
           />
         </Form.Group>
       )}
 
-      {['signup', 'changepass'].includes(props.type) && (
+      {["signup", "changepass"].includes(props.type) && (
         <Form.Group controlId="formConfirmPass">
           <FormField
             size="lg"
@@ -107,7 +107,7 @@ function AuthForm(props) {
             placeholder="Confirm Password"
             error={errors.confirmPass}
             inputRef={register({
-              required: 'Please enter your password again',
+              required: "Please enter your password again",
               validate: value => {
                 if (value === getValues().pass) {
                   return true;

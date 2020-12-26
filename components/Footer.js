@@ -1,8 +1,8 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import Link from 'next/link';
-import '../components/Footer.scss';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import Link from "next/link";
+import "../components/Footer.scss";
 
 function Footer(props) {
   return (

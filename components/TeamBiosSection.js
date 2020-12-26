@@ -1,34 +1,34 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Avatar from '../components/Avatar';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Avatar from "../components/Avatar";
 
 function TeamBiosSection(props) {
   const items = [
     {
-      avatar: 'https://uploads.divjoy.com/pravatar-150x-68.jpeg',
-      name: 'John Smith',
-      role: 'Software Engineer',
+      avatar: "https://uploads.divjoy.com/pravatar-150x-68.jpeg",
+      name: "John Smith",
+      role: "Software Engineer",
       bio:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo.',
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo.",
     },
     {
-      avatar: 'https://uploads.divjoy.com/pravatar-150x-35.jpeg',
-      name: 'Lisa Zinn',
-      role: 'Software Engineer',
+      avatar: "https://uploads.divjoy.com/pravatar-150x-35.jpeg",
+      name: "Lisa Zinn",
+      role: "Software Engineer",
       bio:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!',
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!",
     },
     {
-      avatar: 'https://uploads.divjoy.com/pravatar-150x-16.jpeg',
-      name: 'Diana Low',
-      role: 'Designer',
+      avatar: "https://uploads.divjoy.com/pravatar-150x-16.jpeg",
+      name: "Diana Low",
+      role: "Designer",
       bio:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!',
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum consequatur numquam aliquam tenetur ad amet inventore hic beatae, quas accusantium perferendis sapiente explicabo, corporis totam! Labore reprehenderit beatae magnam animi!",
     },
   ];
 

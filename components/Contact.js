@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import FormAlert from '../components/FormAlert';
-import Form from 'react-bootstrap/Form';
-import FormField from '../components/FormField';
-import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import Col from 'react-bootstrap/Col';
-import contact from '../util/contact';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import FormAlert from "../components/FormAlert";
+import Form from "react-bootstrap/Form";
+import FormField from "../components/FormField";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
+import Col from "react-bootstrap/Col";
+import contact from "../util/contact";
+import { useForm } from "react-hook-form";
 
 function Contact(props) {
   const [pending, setPending] = useState(false);
@@ -24,14 +24,14 @@ function Contact(props) {
         reset();
         // Show success alert message
         setFormAlert({
-          type: 'success',
-          message: 'Your message has been sent!',
+          type: "success",
+          message: "Your message has been sent!",
         });
       })
       .catch(error => {
         // Show error alert message
         setFormAlert({
-          type: 'error',
+          type: "error",
           message: error.message,
         });
       })
@@ -56,7 +56,7 @@ function Contact(props) {
                 placeholder="Name"
                 error={errors.name}
                 inputRef={register({
-                  required: 'Please enter your name',
+                  required: "Please enter your name",
                 })}
               />
             </Form.Group>
@@ -70,7 +70,7 @@ function Contact(props) {
               placeholder="Email"
               error={errors.email}
               inputRef={register({
-                required: 'Please enter your email',
+                required: "Please enter your email",
               })}
             />
           </Form.Group>
@@ -84,7 +84,7 @@ function Contact(props) {
             rows={5}
             error={errors.message}
             inputRef={register({
-              required: 'Please enter a message',
+              required: "Please enter a message",
             })}
           />
         </Form.Group>

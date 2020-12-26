@@ -1,8 +1,8 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Contact from '../components/Contact';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Contact from "../components/Contact";
 
 function ContactSection(props) {
   return (
@@ -15,7 +15,7 @@ function ContactSection(props) {
     >
       <Container
         style={{
-          maxWidth: '850px',
+          maxWidth: "850px",
         }}
       >
         <SectionHeader title={props.title} subtitle={props.subtitle} size={2} spaced={true} className="text-center" />

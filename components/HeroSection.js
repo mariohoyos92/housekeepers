@@ -1,13 +1,13 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SectionHeader from '../components/SectionHeader';
-import Button from 'react-bootstrap/Button';
-import Link from 'next/link';
-import Image from 'react-bootstrap/Image';
-import '../components/HeroSection.scss';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SectionHeader from "../components/SectionHeader";
+import Button from "react-bootstrap/Button";
+import Link from "next/link";
+import Image from "react-bootstrap/Image";
+import "../components/HeroSection.scss";
 
 function HeroSection(props) {
   return (

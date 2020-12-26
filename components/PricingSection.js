@@ -1,43 +1,43 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Link from 'next/link';
-import { useAuth } from '../util/auth';
-import '../components/PricingSection.scss';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Link from "next/link";
+import { useAuth } from "../util/auth";
+import "../components/PricingSection.scss";
 
 function PricingSection(props) {
   const auth = useAuth();
 
   const items = [
     {
-      id: 'monthly',
-      name: 'Monthly',
-      price: '30',
+      id: "monthly",
+      name: "Monthly",
+      price: "30",
       perks: [
-        'Lorem ipsum dolor sit amet',
-        'Consectetur adipiscing elit',
-        'Integer molestie lorem at massa',
-        'Faucibus porta lacus fringilla vel',
-        'Aenean sit amet erat nunc',
+        "Lorem ipsum dolor sit amet",
+        "Consectetur adipiscing elit",
+        "Integer molestie lorem at massa",
+        "Faucibus porta lacus fringilla vel",
+        "Aenean sit amet erat nunc",
       ],
     },
     {
-      id: 'yearly',
-      name: 'Yearly',
-      price: '300',
+      id: "yearly",
+      name: "Yearly",
+      price: "300",
       perks: [
-        'Lorem ipsum dolor sit amet',
-        'Consectetur adipiscing elit',
-        'Integer molestie lorem at massa',
-        'Faucibus porta lacus fringilla vel',
-        'Aenean sit amet erat nunc',
-        'Lorem ipsum dolor sit amet',
-        'Consectetur adipiscing elit',
+        "Lorem ipsum dolor sit amet",
+        "Consectetur adipiscing elit",
+        "Integer molestie lorem at massa",
+        "Faucibus porta lacus fringilla vel",
+        "Aenean sit amet erat nunc",
+        "Lorem ipsum dolor sit amet",
+        "Consectetur adipiscing elit",
       ],
     },
   ];

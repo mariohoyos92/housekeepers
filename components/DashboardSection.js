@@ -1,16 +1,16 @@
-import React from 'react';
-import Section from '../components/Section';
-import Container from 'react-bootstrap/Container';
-import SectionHeader from '../components/SectionHeader';
-import Alert from 'react-bootstrap/Alert';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Link from 'next/link';
-import { useAuth } from '../util/auth';
-import { useRouter } from 'next/router';
-import '../components/DashboardSection.scss';
+import React from "react";
+import Section from "../components/Section";
+import Container from "react-bootstrap/Container";
+import SectionHeader from "../components/SectionHeader";
+import Alert from "react-bootstrap/Alert";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import ListGroup from "react-bootstrap/ListGroup";
+import Link from "next/link";
+import { useAuth } from "../util/auth";
+import { useRouter } from "next/router";
+import "../components/DashboardSection.scss";
 
 function DashboardSection(props) {
   const auth = useAuth();
@@ -28,7 +28,7 @@ function DashboardSection(props) {
         <SectionHeader title={props.title} subtitle={props.subtitle} size={1} spaced={true} className="text-center" />
 
         {router.query.paid && auth.user.planIsActive && (
-          <Alert variant="success" className="text-center mx-auto" style={{ maxWidth: '300px' }}>
+          <Alert variant="success" className="text-center mx-auto" style={{ maxWidth: "300px" }}>
             You are now subscribed
             <span className="ml-2" role="img" aria-label="party">
               🥳
@@ -56,7 +56,7 @@ function DashboardSection(props) {
         <div
           className="mt-5 mx-auto text-center"
           style={{
-            maxWidth: '460px',
+            maxWidth: "460px",
           }}
         >
           <small>
