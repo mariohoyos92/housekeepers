@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 import '../components/PricingSection.scss';
 
 function PricingSection(props) {

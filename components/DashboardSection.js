@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Link from 'next/link';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 import { useRouter } from 'next/router';
 import '../components/DashboardSection.scss';
 

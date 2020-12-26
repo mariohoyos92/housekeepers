@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import Badge from 'react-bootstrap/Badge';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 import '../components/AuthSocial.scss';
 
 function AuthSocial(props) {
@@ -14,15 +14,15 @@ function AuthSocial(props) {
     google: 'Google',
   };
 
-  const onSigninWithProvider = (provider) => {
+  const onSigninWithProvider = provider => {
     setPending(provider);
     auth
       .signinWithProvider(provider)
-      .then((user) => {
+      .then(user => {
         localStorage.setItem('lastUsedAuthProvider', provider);
         props.onAuth(user);
       })
-      .catch((error) => {
+      .catch(error => {
         setPending(null);
         props.onError(error.message);
       });
@@ -40,7 +40,7 @@ function AuthSocial(props) {
 
   return (
     <>
-      {props.providers.map((provider) => (
+      {props.providers.map(provider => (
         <Button
           variant="light"
           size="lg"

@@ -6,7 +6,7 @@ import FormField from '../components/FormField';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import AuthSocial from '../components/AuthSocial';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 import { useForm } from 'react-hook-form';
 
 function ReauthModal(props) {

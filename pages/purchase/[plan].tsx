@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PageLoader from '../../components/PageLoader';
 import FormAlert, { FormAlertArgs } from '../../components/FormAlert';
-import { useAuth, requireAuth } from '../../util/auth.js';
+import { useAuth, requireAuth } from '../../util/auth';
 import { useRouter } from 'next/router';
 import { redirectToCheckout } from '../../util/stripe.js';
 

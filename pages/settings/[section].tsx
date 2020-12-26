@@ -1,7 +1,7 @@
 import React from 'react';
 import SettingsSection from '../../components/SettingsSection';
 import { useRouter } from 'next/router';
-import { requireAuth } from '../../util/auth.js';
+import { requireAuth } from '../../util/auth';
 
 function SettingsPage(props) {
   const router = useRouter();

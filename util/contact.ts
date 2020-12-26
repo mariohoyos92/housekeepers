@@ -2,12 +2,12 @@ const endpoint = `https://formspree.io/${process.env.NEXT_PUBLIC_FORMSPREE_CONTA
 
 function submit(data) {
   return fetch(endpoint, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then((r) => r.json());
+  }).then(r => r.json());
 }
 
 export default { submit };

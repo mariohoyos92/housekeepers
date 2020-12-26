@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 
 function NavbarCustom(props) {
   const auth = useAuth();

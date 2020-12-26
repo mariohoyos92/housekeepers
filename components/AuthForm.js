@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import FormField from '../components/FormField';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 import { useForm } from 'react-hook-form';
 
 function AuthForm(props) {
@@ -14,13 +14,13 @@ function AuthForm(props) {
 
   const submitHandlersByType = {
     signin: ({ email, pass }) => {
-      return auth.signin(email, pass).then((user) => {
+      return auth.signin(email, pass).then(user => {
         // Call auth complete handler
         props.onAuth(user);
       });
     },
     signup: ({ email, pass }) => {
-      return auth.signup(email, pass).then((user) => {
+      return auth.signup(email, pass).then(user => {
         // Call auth complete handler
         props.onAuth(user);
       });
@@ -56,7 +56,7 @@ function AuthForm(props) {
     submitHandlersByType[props.type]({
       email,
       pass,
-    }).catch((error) => {
+    }).catch(error => {
       setPending(false);
       // Show error alert message
       props.onFormAlert({
@@ -108,7 +108,7 @@ function AuthForm(props) {
             error={errors.confirmPass}
             inputRef={register({
               required: 'Please enter your password again',
-              validate: (value) => {
+              validate: value => {
                 if (value === getValues().pass) {
                   return true;
                 } else {

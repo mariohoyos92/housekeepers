@@ -14,7 +14,7 @@ const EMAIL_VERIFICATION = true;
 // Whether to connect analytics session to user.uid
 const ANALYTICS_IDENTIFY = true;
 
-const authContext = createContext();
+const authContext = createContext<ReturnType<typeof useProvideAuth>>(undefined);
 
 // Context Provider component that wraps your app and makes auth object
 // available to any child component that calls the useAuth() hook.
@@ -31,7 +31,7 @@ export const useAuth = () => {
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
   // Store auth user object
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<firebase.User | null | false>(null);
 
   // Format final user object and merge extra data from database
   const finalUser = usePrepareUser(user);
@@ -40,7 +40,7 @@ function useProvideAuth() {
   useIdentifyUser(finalUser);
 
   // Handle response from authentication functions
-  const handleAuth = async (response) => {
+  const handleAuth = async (response: firebase.auth.UserCredential) => {
     const { user, additionalUserInfo } = response;
 
     // Ensure Firebase is actually ready before we continue
@@ -113,7 +113,7 @@ function useProvideAuth() {
 
   // Update auth user and persist to database (including any custom values in data)
   // Forms can call this function instead of multiple auth/db update functions
-  const updateProfile = async (data) => {
+  const updateProfile = async (data: {email: string; name: string; picture?: string}) => {
     const { email, name, picture } = data;
 
     // Update auth email
@@ -123,14 +123,16 @@ function useProvideAuth() {
 
     // Update auth profile fields
     if (name || picture) {
-      let fields = {};
+      let fields: Partial<firebase.UserInfo> = {};
       if (name) fields.displayName = name;
       if (picture) fields.photoURL = picture;
       await firebase.auth().currentUser.updateProfile(fields);
     }
 
     // Persist all data to the database
-    await updateUser(user.uid, data);
+    if (user){
+      await updateUser(user.uid, data);
+    }
 
     // Update user in state
     setUser(firebase.auth().currentUser);
@@ -164,8 +166,19 @@ function useProvideAuth() {
   };
 }
 
+export type PreparedUser = {
+  uid: string;
+  email: string;
+  emailVerified: boolean;
+  name: string;
+  picture?: string;
+  providers: string[];
+  planId?: string;
+  planIsActive: boolean;
+}
+
 // Format final user object and merge extra data from database
-function usePrepareUser(user) {
+function usePrepareUser(user: firebase.User | false | null) {
   // Fetch extra data from database (if enabled and auth user has been fetched)
   const userDbQuery = useUser(MERGE_DB_USER && user && user.uid);
 
@@ -175,7 +188,7 @@ function usePrepareUser(user) {
     if (!user) return user;
 
     // Data we want to include from auth user object
-    let finalUser = {
+    let finalUser: Partial<PreparedUser> = {
       uid: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
@@ -253,7 +266,7 @@ export const requireAuth = (Component) => {
 };
 
 // Handle Firebase email link for reverting to original email
-export const handleRecoverEmail = (code) => {
+export const handleRecoverEmail = (code: string) => {
   let originalEmail;
   return firebase
     .auth()

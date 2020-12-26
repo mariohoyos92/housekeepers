@@ -3,8 +3,8 @@ import '../styles/global.scss';
 import GoogleFonts from 'next-google-fonts';
 import NavbarCustom from '../components/NavbarCustom';
 import Footer from '../components/Footer';
-import '../util/analytics.js';
-import { ProvideAuth } from '../util/auth.js';
+import '../util/analytics';
+import { ProvideAuth } from '../util/auth';
 
 function MyApp({ Component, pageProps }) {
   return (

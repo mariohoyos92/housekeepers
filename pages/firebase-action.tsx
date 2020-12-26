@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PageLoader from '../components/PageLoader';
 import FormAlert from '../components/FormAlert';
-import { handleRecoverEmail, handleVerifyEmail } from '../util/auth.js';
+import { handleRecoverEmail, handleVerifyEmail } from '../util/auth';
 import { useRouter } from 'next/router';
 
 function FirebaseActionPage(props) {

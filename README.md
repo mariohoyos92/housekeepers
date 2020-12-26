@@ -84,10 +84,10 @@ function MyComponent() {
 <details>
 <summary><b>Authentication</b></summary>
 <p>
-  This project uses <a href="https://firebase.google.com">Firebase Auth</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth.js">src/util/auth.js</a></code>) that wraps Firebase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Firebase functionality.
+  This project uses <a href="https://firebase.google.com">Firebase Auth</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth">src/util/auth</a></code>) that wraps Firebase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Firebase functionality.
 
 ```js
-import { useAuth } from "./../util/auth.js";
+import { useAuth } from "./../util/auth";
 
 function MyComponent() {
 	// Get the auth object in any component
@@ -115,11 +115,11 @@ function MyComponent() {
 <details>
 <summary><b>Database</b></summary>
 <p>
-  This project wasn't setup with a particular database in mind, but includes some data fetching hooks to get you started (located in <code><a href="src/util/db.js">src/util/db.js</a></code>) and a basic REST API (located in <code><a href="src/pages/api">src/pages/api</a></code>) where you can connect to your database of choice.
+  This project wasn't setup with a particular database in mind, but includes some data fetching hooks to get you started (located in <code><a href="src/util/db">src/util/db</a></code>) and a basic REST API (located in <code><a href="src/pages/api">src/pages/api</a></code>) where you can connect to your database of choice.
 
 ```js
-import { useAuth } from './../util/auth.js';
-import { useItemsByOwner } from './../util/db.js';
+import { useAuth } from './../util/auth';
+import { useItemsByOwner } from './../util/db';
 import ItemsList from './ItemsList.js';
 
 function ItemsPage(){

@@ -7,7 +7,7 @@ import FormAlert from '../components/FormAlert';
 import SettingsGeneral from '../components/SettingsGeneral';
 import SettingsPassword from '../components/SettingsPassword';
 import SettingsBilling from '../components/SettingsBilling';
-import { useAuth } from '../util/auth.js';
+import { useAuth } from '../util/auth';
 
 function SettingsSection(props) {
   const auth = useAuth();

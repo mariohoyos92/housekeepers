@@ -1,4 +1,4 @@
-const requireAuth = require("./_require-auth.js");
+const requireAuth = require('./_require-auth');
 
 export default requireAuth((req, res) => {
   const authUser = req.user;
@@ -10,7 +10,7 @@ export default requireAuth((req, res) => {
   const fetchedItem = {
     id: id,
     owner: authUser.uid,
-    name: "Fake Item",
+    name: 'Fake Item',
     // Or uncomment this line so owner is different then logged in user.
     // This will cause the request to fail due to owner check farther below.
     // owner: '12345',
@@ -19,7 +19,7 @@ export default requireAuth((req, res) => {
   // Make sure authenticated user is the item owner
   if (fetchedItem.owner !== authUser.uid) {
     return res.send({
-      status: "error",
+      status: 'error',
       message: "Cannot update an item that you don't own",
     });
   }
@@ -32,7 +32,7 @@ export default requireAuth((req, res) => {
   };
 
   res.send({
-    status: "success",
+    status: 'success',
     data: item,
   });
 });

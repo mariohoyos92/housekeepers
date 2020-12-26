@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import FormField from '../components/FormField';
 import Button from 'react-bootstrap/Button';
-import newsletter from '../util/newsletter.js';
+import newsletter from '../util/newsletter';
 import { useForm } from 'react-hook-form';
 
 function Newsletter(props) {
