@@ -1,6 +1,6 @@
-import React from 'react';
-import AuthSection from '../../components/AuthSection';
-import { useRouter } from 'next/router';
+import React from "react";
+import AuthSection from "../../components/AuthSection";
+import { useRouter } from "next/router";
 
 function AuthPage(props) {
   const router = useRouter();
@@ -13,8 +13,8 @@ function AuthPage(props) {
       bgImage=""
       bgImageOpacity={1}
       type={router.query.type}
-      providers={['google']}
-      afterAuthPath={router.query.next || '/dashboard'}
+      providers={["google"]}
+      afterAuthPath={router.query.next || "/dashboard"}
     />
   );
 }
@@ -23,10 +23,10 @@ function AuthPage(props) {
 // See https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export const getStaticPaths = () => ({
   paths: [
-    { params: { type: 'signin' } },
-    { params: { type: 'signup' } },
-    { params: { type: 'forgotpass' } },
-    { params: { type: 'changepass' } },
+    { params: { type: "signin" } },
+    { params: { type: "signup" } },
+    { params: { type: "forgotpass" } },
+    { params: { type: "changepass" } },
   ],
   fallback: true,
 });

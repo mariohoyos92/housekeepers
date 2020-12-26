@@ -22,5 +22,5 @@ exports.up = async function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable(table);
+  return knex.schema.dropTable(tableName);
 };

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PageLoader from '../components/PageLoader';
-import FormAlert from '../components/FormAlert';
-import { handleRecoverEmail, handleVerifyEmail } from '../util/auth';
-import { useRouter } from 'next/router';
+import React, { useEffect, useState } from "react";
+import PageLoader from "../components/PageLoader";
+import FormAlert from "../components/FormAlert";
+import { handleRecoverEmail, handleVerifyEmail } from "../util/auth";
+import { useRouter } from "next/router";
 
 function FirebaseActionPage(props) {
   const router = useRouter();
@@ -18,53 +18,53 @@ function FirebaseActionPage(props) {
 
     // Take action based on Firebase "mode" query param
     switch (mode) {
-      case 'resetPassword':
+      case "resetPassword":
         // Redirect to change password page
         router.replace(`/auth/changepass?oobCode=${oobCode}`);
         break;
-      case 'recoverEmail':
+      case "recoverEmail":
         // Reset to original email
         handleRecoverEmail(oobCode)
-          .then((originalEmail) => {
+          .then(originalEmail => {
             setFormAlert({
-              type: 'success',
+              type: "success",
               message: `Your email has been set back to ${originalEmail}. We've also sent you a password reset email so that you can change your password if you think someone may have access to your account.`,
             });
           })
-          .catch((error) => {
+          .catch(error => {
             setFormAlert({
-              type: 'error',
+              type: "error",
               message: error.message,
             });
           });
         break;
-      case 'verifyEmail':
+      case "verifyEmail":
         // Verify email in Firebase
         handleVerifyEmail(oobCode)
           .then(() => {
             setFormAlert({
-              type: 'success',
+              type: "success",
               message: `Your email has been verified. You may now close this window.`,
             });
           })
-          .catch((error) => {
+          .catch(error => {
             setFormAlert({
-              type: 'error',
+              type: "error",
               message: error.message,
             });
           });
         break;
       default:
         setFormAlert({
-          type: 'error',
-          message: 'Invalid mode parameter',
+          type: "error",
+          message: "Invalid mode parameter",
         });
     }
   }, [router]);
 
   return (
     <PageLoader>
-      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: '500px' }} />}
+      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: "500px" }} />}
     </PageLoader>
   );
 }

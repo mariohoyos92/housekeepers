@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import PageLoader from '../../components/PageLoader';
-import FormAlert, { FormAlertArgs } from '../../components/FormAlert';
-import { useAuth, requireAuth } from '../../util/auth';
-import { useRouter } from 'next/router';
-import { redirectToCheckout } from '../../util/stripe.js';
+import React, { useEffect, useState } from "react";
+import PageLoader from "../../components/PageLoader";
+import FormAlert, { FormAlertArgs } from "../../components/FormAlert";
+import { useAuth, requireAuth } from "../../util/auth";
+import { useRouter } from "next/router";
+import { redirectToCheckout } from "../../util/stripe.js";
 
 function PurchasePage(props) {
   const router = useRouter();
@@ -14,12 +14,12 @@ function PurchasePage(props) {
     if (auth.user.planIsActive) {
       // If user already has an active plan
       // then take them to Stripe billing
-      router.push('/settings/billing');
+      router.push("/settings/billing");
     } else {
       // Otherwise go to checkout
       redirectToCheckout(router.query.plan).catch(error => {
         setFormAlert({
-          type: 'error',
+          type: "error",
           message: error.message,
         });
       });
@@ -30,7 +30,7 @@ function PurchasePage(props) {
 
   return (
     <PageLoader>
-      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: '500px' }} />}
+      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: "500px" }} />}
     </PageLoader>
   );
 }

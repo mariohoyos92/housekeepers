@@ -1,6 +1,6 @@
-import { NextPage } from 'next';
-import React from 'react';
-import ContactSection from '../components/ContactSection';
+import { NextPage } from "next";
+import React from "react";
+import ContactSection from "../components/ContactSection";
 
 const ContactPage: NextPage = () => {
   return (

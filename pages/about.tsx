@@ -1,7 +1,7 @@
-import { NextPage } from 'next';
-import React from 'react';
-import HeroSection2 from '../components/HeroSection2';
-import TeamBiosSection from '../components/TeamBiosSection';
+import { NextPage } from "next";
+import React from "react";
+import HeroSection2 from "../components/HeroSection2";
+import TeamBiosSection from "../components/TeamBiosSection";
 
 const AboutPage: NextPage = () => {
   return (

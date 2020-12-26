@@ -1,7 +1,7 @@
-import React from 'react';
-import SettingsSection from '../../components/SettingsSection';
-import { useRouter } from 'next/router';
-import { requireAuth } from '../../util/auth';
+import React from "react";
+import SettingsSection from "../../components/SettingsSection";
+import { useRouter } from "next/router";
+import { requireAuth } from "../../util/auth";
 
 function SettingsPage(props) {
   const router = useRouter();
@@ -22,7 +22,7 @@ function SettingsPage(props) {
 // Tell Next.js to export static files for each settings page
 // See https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export const getStaticPaths = () => ({
-  paths: [{ params: { section: 'general' } }, { params: { section: 'password' } }, { params: { section: 'billing' } }],
+  paths: [{ params: { section: "general" } }, { params: { section: "password" } }, { params: { section: "billing" } }],
   fallback: true,
 });
 

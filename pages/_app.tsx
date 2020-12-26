@@ -1,11 +1,11 @@
-import React from 'react';
-import '../styles/global.scss';
-import GoogleFonts from 'next-google-fonts';
-import NavbarCustom from '../components/NavbarCustom';
-import Footer from '../components/Footer';
-import '../util/analytics';
-import { ProvideAuth } from '../util/auth';
-import { AppProps } from 'next/app';
+import React from "react";
+import "../styles/global.scss";
+import GoogleFonts from "next-google-fonts";
+import NavbarCustom from "../components/NavbarCustom";
+import Footer from "../components/Footer";
+import "../util/analytics";
+import { ProvideAuth } from "../util/auth";
+import { AppProps } from "next/app";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (

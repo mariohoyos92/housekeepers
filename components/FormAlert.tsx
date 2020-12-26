@@ -4,9 +4,9 @@ import Alert from "react-bootstrap/Alert";
 export type FormAlertArgs = {
   type: string;
   message: string;
-}
+};
 
-const FormAlert:React.FC<FormAlertArgs> = (props) => {
+const FormAlert: React.FC<FormAlertArgs> = props => {
   const { type, message, ...otherProps } = props;
 
   return (
@@ -14,6 +14,6 @@ const FormAlert:React.FC<FormAlertArgs> = (props) => {
       {message}
     </Alert>
   );
-}
+};
 
 export default FormAlert;
