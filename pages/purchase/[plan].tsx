@@ -3,7 +3,7 @@ import PageLoader from "../../components/PageLoader";
 import FormAlert, { FormAlertArgs } from "../../components/FormAlert";
 import { useAuth, requireAuth } from "../../util/auth";
 import { useRouter } from "next/router";
-import { redirectToCheckout } from "../../util/stripe.js";
+import { redirectToCheckout } from "../../util/stripe";
 
 function PurchasePage(props) {
   const router = useRouter();

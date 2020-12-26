@@ -1,7 +1,7 @@
 import { NextApiResponse } from "next";
-import { ResponseFormat } from "./common.js";
-import { UserModel } from "./_models/user.js";
-import { getUserById } from "./_repository/user-repository.js";
+import { ResponseFormat } from "./common";
+import { UserModel } from "./_models/user";
+import { getUserById } from "./_repository/user-repository";
 import requireAuth from "./_require-auth";
 
 export default requireAuth(async (req, res: NextApiResponse<ResponseFormat<UserModel>>) => {

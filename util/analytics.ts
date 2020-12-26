@@ -19,7 +19,7 @@ if (typeof window !== "undefined") {
 }
 
 // Track pageview on route change
-Router.events.on("routeChangeComplete", url => {
+Router.events.on("routeChangeComplete", () => {
   analytics.page();
 });
 

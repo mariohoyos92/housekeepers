@@ -1,8 +1,10 @@
-const getRawBody = require("raw-body");
-const { updateUserByStripeCustomerId } = require("./_repository/user-repository");
+import getRawBody from "raw-body";
+import { updateUserByStripeCustomerId } from "./_repository/user-repository";
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: process.env.STRIPE_API_VERSION,
+import Stripe from "stripe";
+import { NextApiRequest, NextApiResponse } from "next";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: process.env.STRIPE_API_VERSION as "2020-08-27",
 });
 
 // Disable next.js body parsing (stripe needs the raw body to validate the event)
@@ -12,7 +14,7 @@ export const config = {
   },
 };
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const headers = req.headers;
 
   try {
@@ -26,11 +28,12 @@ export default async (req, res) => {
     console.log(`stripeEvent: ${stripeEvent.type}`);
 
     // Get the object from stripeEvent
-    const object = stripeEvent.data.object;
+    const object = stripeEvent.data.object as any;
 
     switch (stripeEvent.type) {
       case "checkout.session.completed":
         // Fetch subscription
+        // eslint-disable-next-line
         const subscription = await stripe.subscriptions.retrieve(object.subscription);
 
         // Update the current user

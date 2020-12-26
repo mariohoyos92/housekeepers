@@ -1,7 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import firebaseAdmin from "./_firebase";
 
-type AuthenticatedApiRequest = NextApiRequest & { user: firebaseAdmin.auth.DecodedIdToken };
+export type AuthenticatedApiRequest<T = any> = Omit<NextApiRequest, "body"> & {
+  user: firebaseAdmin.auth.DecodedIdToken;
+} & {
+  body: T;
+};
 
 // Middleware for requiring authentication and getting user
 const requireAuth = (fn: (req: AuthenticatedApiRequest, res: NextApiResponse) => void) => async (

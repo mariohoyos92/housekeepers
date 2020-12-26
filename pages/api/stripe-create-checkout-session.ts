@@ -1,8 +1,10 @@
-const requireAuth = require("./_require-auth");
-const { getUserById, updateUser } = require("./_repository/user-repository");
+import requireAuth from "./_require-auth";
+import { getUserById, updateUser } from "./_repository/user-repository";
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: process.env.STRIPE_API_VERSION,
+import Stripe from "stripe";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: process.env.STRIPE_API_VERSION as "2020-08-27",
 });
 
 export default requireAuth(async (req, res) => {
@@ -17,6 +19,7 @@ export default requireAuth(async (req, res) => {
   }
 
   try {
+    // eslint-disable-next-line
     let { email, stripeCustomerId } = await getUserById(user.uid);
 
     // If user does not already have a stripeCustomerId then create a customer in Stripe

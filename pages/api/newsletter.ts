@@ -1,4 +1,4 @@
-const Mailchimp = require("mailchimp-api-v3");
+import Mailchimp from "mailchimp-api-v3";
 
 const mailchimpClient = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
@@ -16,7 +16,7 @@ export default (req, res) => {
         status: "pending",
       },
     })
-    .then(result => {
+    .then(() => {
       res.send({ status: "success" });
     })
     .catch(error => {
