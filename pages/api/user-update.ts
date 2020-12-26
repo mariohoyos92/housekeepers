@@ -1,4 +1,4 @@
-const requireAuth = require('./_require-auth');
+import requireAuth from "./_require-auth";
 
 export default requireAuth((req, res) => {
   const authUser = req.user;
@@ -8,8 +8,8 @@ export default requireAuth((req, res) => {
   // Make sure authenticated user can only update themself
   if (uid !== authUser.uid) {
     return res.send({
-      status: 'error',
-      message: 'Cannot update user other than yourself',
+      status: "error",
+      message: "Cannot update user other than yourself",
     });
   }
 
@@ -21,7 +21,7 @@ export default requireAuth((req, res) => {
   };
 
   res.send({
-    status: 'success',
+    status: "success",
     data: user,
   });
 });

@@ -1,7 +1,8 @@
+import { NextPage } from 'next';
 import React from 'react';
 import ContactSection from '../components/ContactSection';
 
-function ContactPage(props) {
+const ContactPage: NextPage = () => {
   return (
     <ContactSection
       bg="white"
@@ -16,6 +17,6 @@ function ContactPage(props) {
       showNameField={true}
     />
   );
-}
+};
 
 export default ContactPage;

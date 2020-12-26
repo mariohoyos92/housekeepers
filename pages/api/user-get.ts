@@ -1,6 +1,5 @@
-import { getUserById } from './_repository/user-repository.js';
-
-const requireAuth = require('./_require-auth');
+import { getUserById } from "./_repository/user-repository.js";
+import requireAuth from "./_require-auth";
 
 export default requireAuth(async (req, res) => {
   const authUser = req.user;
@@ -10,8 +9,8 @@ export default requireAuth(async (req, res) => {
   // Note: You may want to remove this depending on your needs
   if (uid !== authUser.uid) {
     return res.send({
-      status: 'error',
-      message: 'Cannot access user other than yourself',
+      status: "error",
+      message: "Cannot access user other than yourself",
     });
   }
 
@@ -20,7 +19,7 @@ export default requireAuth(async (req, res) => {
   const user = await getUserById(uid);
 
   res.send({
-    status: 'success',
+    status: "success",
     data: user,
   });
 });

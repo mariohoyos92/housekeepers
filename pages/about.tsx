@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
 import React from 'react';
 import HeroSection2 from '../components/HeroSection2';
 import TeamBiosSection from '../components/TeamBiosSection';
 
-function AboutPage(props) {
+const AboutPage: NextPage = () => {
   return (
     <>
       <HeroSection2
@@ -25,6 +26,6 @@ function AboutPage(props) {
       />
     </>
   );
-}
+};
 
 export default AboutPage;

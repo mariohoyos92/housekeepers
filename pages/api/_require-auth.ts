@@ -1,7 +1,13 @@
-const firebaseAdmin = require("./_firebase.js");
+import { NextApiRequest, NextApiResponse } from "next";
+import firebaseAdmin from "./_firebase";
+
+type AuthenticatedApiRequest = NextApiRequest & { user: firebaseAdmin.auth.DecodedIdToken };
 
 // Middleware for requiring authentication and getting user
-const requireAuth = (fn) => async (req, res) => {
+const requireAuth = (fn: (req: AuthenticatedApiRequest, res: NextApiResponse) => void) => async (
+  req: AuthenticatedApiRequest,
+  res: NextApiResponse
+) => {
   // Respond with error if no authorization header
   if (!req.headers.authorization) {
     return res.status(401).send({
@@ -32,4 +38,4 @@ const requireAuth = (fn) => async (req, res) => {
   }
 };
 
-module.exports = requireAuth;
+export default requireAuth;
