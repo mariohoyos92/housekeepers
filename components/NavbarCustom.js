@@ -15,7 +15,7 @@ function NavbarCustom(props) {
       <Container>
         <Link href="/" passHref={true}>
           <Navbar.Brand>
-            <img className="d-inline-block align-top" src={props.logo} alt="Logo" height="30" />
+            <img className="max-w-sm" src={props.logo} alt="Logo" height="30" />
           </Navbar.Brand>
         </Link>
 

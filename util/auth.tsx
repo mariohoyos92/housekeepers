@@ -328,6 +328,9 @@ function useIdentifyUser(user) {
     if (ANALYTICS_IDENTIFY && user) {
       analytics.identify(user.uid);
     }
+    if (user && typeof window !== "undefined" && (window as any).$crisp) {
+      (window as any).$crisp.push(["set", "user:email", user.email]);
+    }
   }, [user]);
 }
 

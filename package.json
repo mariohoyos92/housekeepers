@@ -32,7 +32,8 @@
     "react-hook-form": "4.10.1",
     "react-query": "2.12.1",
     "stripe": "^8.129.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "twilio": "^3.54.1"
   },
   "scripts": {
     "dev": "next dev",
