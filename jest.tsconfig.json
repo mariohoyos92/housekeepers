@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "declaration": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "outDir": "build",
+    "allowJs": false
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

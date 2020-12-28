@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import PageLoader from "../../components/PageLoader";
 import FormAlert, { FormAlertArgs } from "../../components/FormAlert";
-import { useAuth, requireAuth } from "../../util/auth";
+import { useAuth, requireAuth, PreparedUser } from "../../util/auth";
 import { useRouter } from "next/router";
 import { redirectToCheckout } from "../../util/stripe";
 
-function PurchasePage(props) {
+function PurchasePage() {
   const router = useRouter();
   const auth = useAuth();
   const [formAlert, setFormAlert] = useState<FormAlertArgs>();
 
   useEffect(() => {
-    if (auth.user.planIsActive) {
+    if (auth.user && (auth.user as PreparedUser).planIsActive) {
       // If user already has an active plan
       // then take them to Stripe billing
       router.push("/settings/billing");

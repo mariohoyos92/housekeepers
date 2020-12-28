@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import PageLoader from "../components/PageLoader";
-import FormAlert from "../components/FormAlert";
+import FormAlert, { FormAlertArgs } from "../components/FormAlert";
 import { handleRecoverEmail, handleVerifyEmail } from "../util/auth";
 import { useRouter } from "next/router";
 
-function FirebaseActionPage(props) {
+function FirebaseActionPage() {
   const router = useRouter();
-  const [formAlert, setFormAlert] = useState();
+  const [formAlert, setFormAlert] = useState<FormAlertArgs>();
 
   useEffect(() => {
     const { mode, oobCode } = router.query;
@@ -24,7 +24,7 @@ function FirebaseActionPage(props) {
         break;
       case "recoverEmail":
         // Reset to original email
-        handleRecoverEmail(oobCode)
+        handleRecoverEmail(oobCode as string)
           .then(originalEmail => {
             setFormAlert({
               type: "success",

@@ -229,9 +229,11 @@ function usePrepareUser(user: firebase.User | false | null) {
           if (!userDbQuery.data) return null;
 
           // Merge user data from database into finalUser object
+          // eslint-disable-next-line
           Object.assign(finalUser, userDbQuery.data);
 
           // Get values we need for setting up some custom fields below
+          // eslint-disable-next-line
           const { stripePriceId, stripeSubscriptionStatus } = userDbQuery.data;
 
           // Add planId field (such as "basic", "premium", etc) based on stripePriceId

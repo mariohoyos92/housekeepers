@@ -4,7 +4,10 @@ module.exports = {
   development: {
     client: "postgresql",
     connection: {
-      connectionString: process.env.PG_CONNECTION_STRING,
+      host: process.env.PG_HOST,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASS,
+      database: process.env.PG_DATABASE,
       ssl: { rejectUnauthorized: false },
     },
     migrations: {

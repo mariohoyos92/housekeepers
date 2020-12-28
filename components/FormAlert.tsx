@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import Alert from "react-bootstrap/Alert";
 
 export type FormAlertArgs = {
@@ -6,7 +6,7 @@ export type FormAlertArgs = {
   message: string;
 };
 
-const FormAlert: React.FC<FormAlertArgs> = props => {
+const FormAlert: React.FC<FormAlertArgs & HtmlHTMLAttributes<HTMLDivElement>> = props => {
   const { type, message, ...otherProps } = props;
 
   return (
