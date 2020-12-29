@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import firebase from "firebase";
 import { useAuth } from "../../util/auth";
 import Spinner from "react-bootstrap/Spinner";
-import { Badge } from "react-bootstrap";
 
 type Props = {
   onAuth: (user: firebase.User) => void;
@@ -10,9 +9,10 @@ type Props = {
   onError: (message: string) => void;
   providers?: string[];
   type: string;
+  hideBorderSection?: boolean;
 };
 
-const AuthSocial: React.FC<Props> = ({ onAuth, showLastUsed, onError, providers = [], type }) => {
+const AuthSocial: React.FC<Props> = ({ onAuth, showLastUsed, onError, providers = [], hideBorderSection = false }) => {
   const auth = useAuth();
   const [pending, setPending] = useState(null);
   const [lastUsed, setLastUsed] = useState(null);
@@ -47,18 +47,20 @@ const AuthSocial: React.FC<Props> = ({ onAuth, showLastUsed, onError, providers 
 
   return (
     <div className="mt-6">
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300"></div>
+      {!hideBorderSection && (
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-2 text-gray-500 bg-white">Or continue with</span>
+          </div>
         </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-2 text-gray-500 bg-white">Or continue with</span>
-        </div>
-      </div>
+      )}
 
-      <div className="grid grid-cols-3 gap-3 mt-6">
+      <div className="flex justify-center mt-6">
         {providers.map(provider => (
-          <div>
+          <div key={provider}>
             <button
               className="relative inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50"
               onClick={() => onSigninWithProvider(provider)}

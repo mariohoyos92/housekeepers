@@ -77,6 +77,7 @@ function ReauthModal(props) {
             buttonText="Sign in"
             providers={[props.provider]}
             showLastUsed={false}
+            hideBorderSection
             onAuth={() => {
               props.callback();
               props.onDone();
