@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PageLoader from "../components/PageLoader";
-import FormAlert, { FormAlertArgs } from "../components/FormAlert";
 import { handleRecoverEmail, handleVerifyEmail } from "../util/auth";
 import { useRouter } from "next/router";
+import Alert from "../components/Alert";
+import { AlertTypes } from "../components/Alert/Alert";
 
 function FirebaseActionPage() {
   const router = useRouter();
-  const [formAlert, setFormAlert] = useState<FormAlertArgs>();
+  const [formAlert, setFormAlert] = useState<{ type: AlertTypes; message: string }>();
 
   useEffect(() => {
     const { mode, oobCode } = router.query;
@@ -27,13 +28,13 @@ function FirebaseActionPage() {
         handleRecoverEmail(oobCode as string)
           .then(originalEmail => {
             setFormAlert({
-              type: "success",
+              type: AlertTypes.success,
               message: `Your email has been set back to ${originalEmail}. We've also sent you a password reset email so that you can change your password if you think someone may have access to your account.`,
             });
           })
           .catch(error => {
             setFormAlert({
-              type: "error",
+              type: AlertTypes.error,
               message: error.message,
             });
           });
@@ -43,29 +44,27 @@ function FirebaseActionPage() {
         handleVerifyEmail(oobCode)
           .then(() => {
             setFormAlert({
-              type: "success",
+              type: AlertTypes.success,
               message: `Your email has been verified. You may now close this window.`,
             });
           })
           .catch(error => {
             setFormAlert({
-              type: "error",
+              type: AlertTypes.error,
               message: error.message,
             });
           });
         break;
       default:
         setFormAlert({
-          type: "error",
+          type: AlertTypes.error,
           message: "Invalid mode parameter",
         });
     }
   }, [router]);
 
   return (
-    <PageLoader>
-      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: "500px" }} />}
-    </PageLoader>
+    <PageLoader>{formAlert && <Alert type={formAlert.type as AlertTypes} header={formAlert.message} />}</PageLoader>
   );
 }
 

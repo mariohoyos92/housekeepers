@@ -1,4 +1,4 @@
-import "../.next/static/chunks/styles.chunk.css";
+import "tailwindcss/tailwind.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import FormField from "../components/FormField";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
+import TextInput from "./TextInput";
 
 function SettingsPassword(props) {
   const auth = useAuth();
@@ -50,27 +49,25 @@ function SettingsPassword(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group controlId="formName">
-        <FormField
-          name="pass"
-          type="password"
-          label="New Password"
-          placeholder="Password"
-          size="lg"
-          error={errors.pass}
-          inputRef={register({
-            required: "Please enter a password",
-          })}
-        />
-      </Form.Group>
-      <Form.Group controlId="formEmail">
-        <FormField
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextInput
+        id="pass"
+        name="pass"
+        type="password"
+        label="New Password"
+        required
+        error={errors.pass}
+        inputRef={register({
+          required: "Please enter a password",
+        })}
+      />
+      <div className="my-4">
+        <TextInput
+          id="confirmPass"
           name="confirmPass"
           type="password"
           label="Confirm New Password"
-          placeholder="Confirm Password"
-          size="lg"
+          errorMessage={errors.confirmPass?.message}
           error={errors.confirmPass}
           inputRef={register({
             required: "Please enter your new password again",
@@ -83,7 +80,7 @@ function SettingsPassword(props) {
             },
           })}
         />
-      </Form.Group>
+      </div>
       <Button type="submit" size="lg" disabled={pending}>
         <span>Save</span>
 
@@ -93,7 +90,7 @@ function SettingsPassword(props) {
           </Spinner>
         )}
       </Button>
-    </Form>
+    </form>
   );
 }
 

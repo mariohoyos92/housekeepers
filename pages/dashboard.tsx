@@ -3,17 +3,7 @@ import DashboardSection from "../components/DashboardSection";
 import { requireAuth } from "../util/auth";
 
 function DashboardPage() {
-  return (
-    <DashboardSection
-      bg="white"
-      textColor="dark"
-      size="md"
-      bgImage=""
-      bgImageOpacity={1}
-      title="Dashboard"
-      subtitle=""
-    />
-  );
+  return <DashboardSection />;
 }
 
 export default requireAuth(DashboardPage);

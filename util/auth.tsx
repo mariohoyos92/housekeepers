@@ -183,6 +183,9 @@ export type PreparedUser = {
   providers: string[];
   planId?: string;
   planIsActive: boolean;
+  stripeSubscriptionId?: string;
+  stripePriceId?: string;
+  stripeSubscriptionStatus?: string;
 };
 
 // Format final user object and merge extra data from database

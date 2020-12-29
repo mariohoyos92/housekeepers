@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PageLoader from "../../components/PageLoader";
-import FormAlert, { FormAlertArgs } from "../../components/FormAlert";
 import { useAuth, requireAuth, PreparedUser } from "../../util/auth";
 import { useRouter } from "next/router";
 import { redirectToCheckout } from "../../util/stripe";
+import Alert, { AlertTypes } from "../../components/Alert/Alert";
 
 function PurchasePage() {
   const router = useRouter();
   const auth = useAuth();
-  const [formAlert, setFormAlert] = useState<FormAlertArgs>();
+  const [formAlert, setFormAlert] = useState<{ type: AlertTypes; message: string }>();
 
   useEffect(() => {
     if (auth.user && (auth.user as PreparedUser).planIsActive) {
@@ -19,7 +19,7 @@ function PurchasePage() {
       // Otherwise go to checkout
       redirectToCheckout(router.query.plan).catch(error => {
         setFormAlert({
-          type: "error",
+          type: AlertTypes.error,
           message: error.message,
         });
       });
@@ -28,11 +28,7 @@ function PurchasePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <PageLoader>
-      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} style={{ maxWidth: "500px" }} />}
-    </PageLoader>
-  );
+  return <PageLoader>{formAlert && <Alert type={formAlert.type} header={formAlert.message} />}</PageLoader>;
 }
 
 export default requireAuth(PurchasePage);

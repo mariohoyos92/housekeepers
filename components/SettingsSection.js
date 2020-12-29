@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Section from "../components/Section";
 import ReauthModal from "../components/ReauthModal";
 import SettingsNav from "../components/SettingsNav";
 import Container from "react-bootstrap/Container";
-import FormAlert from "../components/FormAlert";
 import SettingsGeneral from "../components/SettingsGeneral";
 import SettingsPassword from "../components/SettingsPassword";
 import SettingsBilling from "../components/SettingsBilling";
 import { useAuth } from "../util/auth";
+import Alert from "./Alert";
 
 function SettingsSection(props) {
   const auth = useAuth();
@@ -50,7 +49,7 @@ function SettingsSection(props) {
   };
 
   return (
-    <Section
+    <section
       bg={props.bg}
       textColor={props.textColor}
       size={props.size}
@@ -73,12 +72,9 @@ function SettingsSection(props) {
         }}
       >
         {formAlert && (
-          <FormAlert
-            type={formAlert.type}
-            message={formAlert.message}
-            className="mx-auto mb-4"
-            style={{ maxWidth: "450px" }}
-          />
+          <div className="mb-4">
+            <Alert type={formAlert.type} header={formAlert.message} style={{ maxWidth: "450px" }} />
+          </div>
         )}
 
         {section === "general" && <SettingsGeneral onStatus={handleStatus} />}
@@ -87,7 +83,7 @@ function SettingsSection(props) {
 
         {section === "billing" && <SettingsBilling onStatus={handleStatus} />}
       </Container>
-    </Section>
+    </section>
   );
 }
 

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import FormAlert from "../components/FormAlert";
-import Form from "react-bootstrap/Form";
-import FormField from "../components/FormField";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import AuthSocial from "../components/AuthSocial";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
+import TextInput from "./TextInput";
+import Alert from "./Alert";
 
 function ReauthModal(props) {
   const auth = useAuth();
@@ -43,23 +42,26 @@ function ReauthModal(props) {
     <Modal show={true} onHide={props.onDone}>
       <Modal.Header closeButton={true}>Please sign in again to complete this action</Modal.Header>
       <Modal.Body>
-        {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} />}
+        {formAlert && (
+          <div className="mb-2">
+            <Alert type={formAlert.type} header={formAlert.message} />
+          </div>
+        )}
 
         {props.provider === "password" && (
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group controlId="formConfirmPass">
-              <FormField
-                size="lg"
-                name="pass"
-                type="password"
-                placeholder="Password"
-                error={errors.pass}
-                inputRef={register({
-                  required: "Please enter your password",
-                })}
-              />
-            </Form.Group>
-            <Button size="lg" variant="primary" block={true} type="submit" disabled={pending}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <TextInput
+              name="pass"
+              type="password"
+              label="Password"
+              required
+              error={errors.pass}
+              inputRef={register({
+                required: "Please enter your password",
+              })}
+            />
+
+            <Button size="lg" variant="primary" block={true} type="submit" disabled={pending} className="mt-4">
               <span>Submit</span>
 
               {pending && (
@@ -68,7 +70,7 @@ function ReauthModal(props) {
                 </Spinner>
               )}
             </Button>
-          </Form>
+          </form>
         )}
 
         {props.provider !== "password" && (

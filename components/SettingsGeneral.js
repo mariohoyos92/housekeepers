@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import FormField from "../components/FormField";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
+import TextInput from "./TextInput";
 
 function SettingsGeneral(props) {
   const auth = useAuth();
@@ -47,36 +46,35 @@ function SettingsGeneral(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group controlId="formName">
-        <FormField
-          name="name"
-          type="text"
-          label="Name"
-          defaultValue={auth.user.name}
-          placeholder="Name"
-          error={errors.name}
-          size="lg"
-          inputRef={register({
-            required: "Please enter your name",
-          })}
-        />
-      </Form.Group>
-      <Form.Group controlId="formEmail">
-        <FormField
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <TextInput
+        id="name"
+        name="name"
+        type="text"
+        label="Name"
+        defaultValue={auth.user.name}
+        placeholder="Name"
+        error={errors.name}
+        inputRef={register({
+          required: "Please enter your name",
+        })}
+      />
+      <div className="mt-4">
+        <TextInput
           name="email"
           type="email"
           label="Email Address"
           defaultValue={auth.user.email}
           placeholder="Email"
+          required
           error={errors.email}
-          size="lg"
           inputRef={register({
             required: "Please enter your email",
           })}
         />
-      </Form.Group>
-      <Button type="submit" size="lg" disabled={pending}>
+      </div>
+
+      <Button type="submit" className="mt-1" size="lg" disabled={pending}>
         <span>Save</span>
 
         {pending && (
@@ -85,7 +83,7 @@ function SettingsGeneral(props) {
           </Spinner>
         )}
       </Button>
-    </Form>
+    </form>
   );
 }
 

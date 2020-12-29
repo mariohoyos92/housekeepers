@@ -86,7 +86,7 @@ const AuthSocial: React.FC<Props> = ({ onAuth, showLastUsed, onError, providers 
                 />
               )}
               {provider === lastUsed && (
-                <span className="absolute inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 whitespace-nowrap -top-1 -right-8">
+                <span className="absolute inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 whitespace-nowrap -top-1 -right-14">
                   Last used
                 </span>
               )}

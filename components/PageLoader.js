@@ -1,5 +1,4 @@
 import React from "react";
-import Section from "../components/Section";
 import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -7,7 +6,7 @@ function PageLoader(props) {
   const { style, children, ...otherProps } = props;
 
   return (
-    <Section
+    <section
       bg="white"
       className="d-flex justify-content-center align-items-center"
       style={{
@@ -21,7 +20,7 @@ function PageLoader(props) {
 
         {props.children && <>{props.children}</>}
       </Container>
-    </Section>
+    </section>
   );
 }
 

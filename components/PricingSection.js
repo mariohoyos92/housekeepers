@@ -1,5 +1,4 @@
 import React from "react";
-import Section from "../components/Section";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -42,7 +41,7 @@ function PricingSection(props) {
   ];
 
   return (
-    <Section
+    <section
       bg={props.bg}
       textColor={props.textColor}
       size={props.size}
@@ -92,7 +91,7 @@ function PricingSection(props) {
           ))}
         </Row>
       </Container>
-    </Section>
+    </section>
   );
 }
 

@@ -1,28 +1,33 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Alert from "../Alert";
+import { AlertTypes } from "../Alert/Alert";
 import AuthFooter from "../AuthFooter/AuthFooter";
 import AuthForm from "../AuthForm/AuthForm";
 import { SigninValues } from "../AuthSection/AuthSection";
 import AuthSocial from "../AuthSocial/AuthSocial";
-import FormAlert, { FormAlertArgs } from "../FormAlert";
 
 type Props = { afterAuthPath: string; providers: string[]; type: string; typeValues: SigninValues };
 
 const Auth: React.FC<Props> = ({ afterAuthPath, providers = [], type, typeValues }) => {
   const router = useRouter();
-  const [formAlert, setFormAlert] = useState<FormAlertArgs>(null);
+  const [formAlert, setFormAlert] = useState<{ type: AlertTypes; message: string }>(null);
 
   const handleAuth = () => {
     router.push(afterAuthPath);
   };
 
-  const handleFormAlert = (data: FormAlertArgs) => {
+  const handleFormAlert = (data: { type: AlertTypes; message: string }) => {
     setFormAlert(data);
   };
 
+  useEffect(() => {
+    setFormAlert(null);
+  }, [type]);
+
   return (
     <>
-      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message} />}
+      {formAlert && <Alert type={formAlert.type as AlertTypes} header={formAlert.message} content="" />}
       <AuthForm type={type} onAuth={handleAuth} onFormAlert={handleFormAlert} typeValues={typeValues} />
       {["signup", "signin"].includes(type) && (
         <>
@@ -33,7 +38,7 @@ const Auth: React.FC<Props> = ({ afterAuthPath, providers = [], type, typeValues
               type={type}
               showLastUsed={true}
               onAuth={handleAuth}
-              onError={message => handleFormAlert({ type: "error", message })}
+              onError={message => handleFormAlert({ type: AlertTypes.error, message })}
             />
           )}
         </>
