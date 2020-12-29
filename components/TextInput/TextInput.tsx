@@ -48,10 +48,10 @@ const TextInput = forwardRef<HTMLDivElement, Props & InputHTMLAttributes<HTMLInp
     id,
     ref: inputRef,
     className: classNames(
-      "shadow-sm block w-full sm:text-sm border-gray-300 rounded-md focus:ring",
-      { "focus:ring-indigo-500 focus:border-indigo-500": !error },
+      "block w-full sm:text-sm border-gray-300 rounded-md ",
+      { "focus:ring focus:ring-indigo-500 focus:border-indigo-500": !error },
       {
-        "border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500": error,
+        "focus:ring border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500": error,
       },
       {
         "bg-gray-100 focus:outline-none focus:border-gray-100 border-gray-100 cursor-not-allowed": disabled,
@@ -123,7 +123,7 @@ const TextInput = forwardRef<HTMLDivElement, Props & InputHTMLAttributes<HTMLInp
       ) : null}
 
       <div
-        className={classNames("mt-1 rounded-md relative", {
+        className={classNames("mt-1 rounded-md relative shadow-sm", {
           flex: renderLeadingIcon || trailingButtonOptions,
         })}
       >

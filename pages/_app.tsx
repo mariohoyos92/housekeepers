@@ -1,7 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import "../styles/global.scss";
+import "../styles/global.css";
 import GoogleFonts from "next-google-fonts";
 import "../util/analytics";
 import { ProvideAuth } from "../util/auth";
