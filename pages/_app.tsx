@@ -1,6 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import cx from "classnames";
 import "../styles/global.css";
 import GoogleFonts from "next-google-fonts";
 import "../util/analytics";
@@ -11,6 +12,7 @@ import { useRouter } from "next/router";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const Router = useRouter();
+  const isAuthPage = Router.asPath.includes("auth");
   return (
     <ProvideAuth>
       <Head>
@@ -22,9 +24,15 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-      {!Router.asPath.includes("auth") && <Nav />}
-      <Component {...pageProps} />
-      {!Router.asPath.includes("auth") && <Footer />}
+
+      <div className="flex flex-col min-h-screen top-container bg-gray-50">
+        {!isAuthPage && <Nav />}
+        <div className={cx({ "pt-24 pb-8": !isAuthPage }, "w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8")}>
+          <Component {...pageProps} />
+        </div>
+
+        {!isAuthPage && <Footer />}
+      </div>
     </ProvideAuth>
   );
 };

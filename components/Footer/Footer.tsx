@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white footer">
+    <footer className="mt-auto bg-white">
       <div className="px-4 pt-12 pb-2 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center -mx-5 -my-2" aria-label="Footer">
           <div className="px-5 py-2">

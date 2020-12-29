@@ -14,7 +14,7 @@ const Nav: React.FC<Props> = ({ user, signOut }) => {
   const [profileDropdown, setProfileDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <nav className="bg-white shadow">
+    <nav className="fixed z-10 w-full mb-16 bg-white shadow">
       <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative flex justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
