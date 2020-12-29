@@ -42,7 +42,6 @@ function useProvideAuth() {
   // Handle response from authentication functions
   const handleAuth = async (response: firebase.auth.UserCredential) => {
     const { user, additionalUserInfo } = response;
-
     // Ensure Firebase is actually ready before we continue
     await waitForFirebase();
 
@@ -99,11 +98,11 @@ function useProvideAuth() {
     return firebase.auth().sendPasswordResetEmail(email);
   };
 
-  const confirmPasswordReset = (password, code) => {
+  const confirmPasswordReset = (password: string, code?: string) => {
     // Get code from query string object
     const resetCode = code || getFromQueryString("oobCode");
 
-    return firebase.auth().confirmPasswordReset(resetCode, password);
+    return firebase.auth().confirmPasswordReset(resetCode as string, password);
   };
 
   const updateEmail = email => {
@@ -257,7 +256,6 @@ export const requireAuth = Component => {
   return props => {
     // Get authenticated user
     const auth = useAuth();
-
     useEffect(() => {
       // Redirect if not signed in
       if (auth.user === false) {

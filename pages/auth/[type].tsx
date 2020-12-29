@@ -1,20 +1,14 @@
-import React from "react";
-import AuthSection from "../../components/AuthSection";
 import { useRouter } from "next/router";
+import React from "react";
+import AuthSection from "../../components/AuthSection/AuthSection";
 
-function AuthPage(props) {
+function AuthPage() {
   const router = useRouter();
-
   return (
     <AuthSection
-      bg="white"
-      textColor="dark"
-      size="md"
-      bgImage=""
-      bgImageOpacity={1}
-      type={router.query.type}
+      type={router.query.type as string}
       providers={["google"]}
-      afterAuthPath={router.query.next || "/dashboard"}
+      afterAuthPath={(router.query.next as string) || "/dashboard"}
     />
   );
 }

@@ -7,8 +7,10 @@ import "../util/analytics";
 import { ProvideAuth } from "../util/auth";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import { useRouter } from "next/router";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const Router = useRouter();
   return (
     <ProvideAuth>
       <Head>
@@ -20,9 +22,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-      <Nav />
+      {!Router.asPath.includes("auth") && <Nav />}
       <Component {...pageProps} />
-      <Footer />
+      {!Router.asPath.includes("auth") && <Footer />}
     </ProvideAuth>
   );
 };
