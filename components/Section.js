@@ -1,6 +1,5 @@
 import React from "react";
-import BackgroundImage from "../components/BackgroundImage";
-import "../components/Section.scss";
+import "./Section.scss";
 
 function Section(props) {
   const { bg, textColor, bgImage, bgImageOpacity, bgImageRepeat, className, children, ...otherProps } = props;
@@ -15,8 +14,6 @@ function Section(props) {
       }
       {...otherProps}
     >
-      {bgImage && <BackgroundImage image={bgImage} opacity={bgImageOpacity} repeat={bgImageRepeat} />}
-
       <div
         className={"" + (["md", "lg"].includes(props.size) ? " py-md-5" : "") + (props.size === "lg" ? " my-md-5" : "")}
       >

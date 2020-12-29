@@ -18,7 +18,6 @@ export default requireAuth(
     }
 
     // Create user in database here
-    // For now we'll return a fake user containing data we passed in request
     const user = await createUser(req.body);
 
     res.send({

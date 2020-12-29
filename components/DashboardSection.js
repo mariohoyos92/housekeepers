@@ -1,7 +1,6 @@
 import React from "react";
 import Section from "../components/Section";
 import Container from "react-bootstrap/Container";
-import SectionHeader from "../components/SectionHeader";
 import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -25,10 +24,10 @@ function DashboardSection(props) {
       bgImageOpacity={props.bgImageOpacity}
     >
       <Container>
-        <SectionHeader title={props.title} subtitle={props.subtitle} size={1} spaced={true} className="text-center" />
+        <h1>Dashboard</h1>
 
         {router.query.paid && auth.user.planIsActive && (
-          <Alert variant="success" className="text-center mx-auto" style={{ maxWidth: "300px" }}>
+          <Alert variant="success" className="mx-auto text-center" style={{ maxWidth: "300px" }}>
             You are now subscribed
             <span className="ml-2" role="img" aria-label="party">
               🥳
@@ -36,7 +35,7 @@ function DashboardSection(props) {
           </Alert>
         )}
 
-        <Row className="align-items-center mt-5">
+        <Row className="mt-5 align-items-center">
           <Col lg={6}>
             <p>This would be a good place to build your custom product features after exporting your codebase.</p>
             <p>
@@ -48,13 +47,13 @@ function DashboardSection(props) {
             </p>
           </Col>
           <Col className="mt-5 mt-lg-0">
-            <figure className="DashboardSection__image-container mx-auto">
+            <figure className="mx-auto DashboardSection__image-container">
               <Image src="https://uploads.divjoy.com/undraw-personal_settings_kihd.svg" fluid={true} />
             </figure>
           </Col>
         </Row>
         <div
-          className="mt-5 mx-auto text-center"
+          className="mx-auto mt-5 text-center"
           style={{
             maxWidth: "460px",
           }}
