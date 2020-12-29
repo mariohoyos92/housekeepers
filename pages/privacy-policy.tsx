@@ -1,6 +1,6 @@
 import React from "react";
 
-export default PrivacyPolicy => (
+const PrivacyPolicy = () => (
   <section>
     <h1>Privacy Policy</h1>
     <p>
@@ -136,3 +136,5 @@ export default PrivacyPolicy => (
     </p>
   </section>
 );
+
+export default PrivacyPolicy;
