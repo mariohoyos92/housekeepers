@@ -38,7 +38,7 @@ This project uses the following libraries and services:
 <details>
 <summary><b>Routing</b></summary>
 <p>
-  This project uses the built-in Next.js router and its convenient <code>useRouter</code> hook. Learn more in the <a target="_blank" href="https://github.com/zeit/next.js/#routing">Next.js docs</a>.
+  This project uses the built-in Next.js router and its convenient <code>useRouter</code> hook. Learn more in the <a target="_blank" href="https://github.com/zeit/next.js/#routing">Next.js docs </a>.
 
 ```js
 import Link from "next/link";
