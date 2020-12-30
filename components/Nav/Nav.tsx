@@ -6,6 +6,7 @@ import Transition from "../Transition";
 import { useRouter } from "next/router";
 import { PreparedUser } from "../../util/auth";
 import UserAvatar from "../Icons/UserAvatar";
+import Logo from "../Icons/Logo";
 
 type Props = { user?: PreparedUser; signOut: () => void };
 
@@ -52,7 +53,9 @@ const Nav: React.FC<Props> = ({ user, signOut }) => {
           <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
             <div className="flex items-center flex-shrink-0">
               <Link href="/" passHref={true}>
-                <a className="text-3xl">LVH</a>
+                <a className="-ml-12">
+                  <Logo />
+                </a>
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

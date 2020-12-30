@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import firebase from "firebase";
 import { useAuth } from "../../util/auth";
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "../Spinner";
 
 type Props = {
   onAuth: (user: firebase.User) => void;
@@ -68,13 +68,7 @@ const AuthSocial: React.FC<Props> = ({ onAuth, showLastUsed, onError, providers 
             >
               <span className="sr-only">Sign in with {providerDisplayNames[provider]}</span>
               {pending === provider ? (
-                <Spinner
-                  animation="border"
-                  size="sm"
-                  role="status"
-                  aria-hidden={true}
-                  className="align-baseline text-primary"
-                >
+                <Spinner size={16}>
                   <span className="sr-only">Loading...</span>
                 </Spinner>
               ) : (

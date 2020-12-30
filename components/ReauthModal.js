@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import Button from "./Button";
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "./Spinner";
 import AuthSocial from "../components/AuthSocial";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
@@ -69,7 +69,7 @@ function ReauthModal(props) {
               <span>Submit</span>
 
               {pending && (
-                <Spinner animation="border" size="sm" role="status" aria-hidden={true} className="ml-2">
+                <Spinner color="white" size={16} className="ml-1">
                   <span className="sr-only">Loading...</span>
                 </Spinner>
               )}

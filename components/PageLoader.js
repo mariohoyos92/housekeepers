@@ -1,6 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "./Spinner";
 
 function PageLoader(props) {
   const { style, children, ...otherProps } = props;
@@ -8,18 +7,16 @@ function PageLoader(props) {
   return (
     <section
       bg="white"
-      className="d-flex justify-content-center align-items-center"
+      className="flex items-center justify-center w-full"
       style={{
         height: "400px",
         ...style,
       }}
       {...otherProps}
     >
-      <Container>
-        {!props.children && <Spinner animation="border" variant="primary" />}
+      {!props.children && <Spinner />}
 
-        {props.children && <>{props.children}</>}
-      </Container>
+      {props.children && <>{props.children}</>}
     </section>
   );
 }

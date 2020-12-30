@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "./Spinner";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
 import TextInput from "./TextInput";
@@ -78,7 +78,7 @@ function SettingsGeneral(props) {
         <span>Save</span>
 
         {pending && (
-          <Spinner animation="border" size="sm" role="status" aria-hidden={true} className="ml-2 align-baseline">
+          <Spinner size={16} color={"white"} className="ml-1">
             <span className="sr-only">Sending...</span>
           </Spinner>
         )}

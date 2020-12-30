@@ -3,7 +3,7 @@ import firebase from "firebase";
 import { useAuth } from "../../util/auth";
 import { useForm } from "react-hook-form";
 import { SigninValues } from "../AuthSection/AuthSection";
-import Spinner from "react-bootstrap/Spinner";
+import Spinner from "../Spinner";
 import TextInput from "../TextInput";
 import Button from "../Button";
 
@@ -148,7 +148,7 @@ const AuthForm: React.FC<Props> = ({ type, onAuth, onFormAlert, typeValues }) =>
           {!pending && <span>{typeValues.buttonText}</span>}
 
           {pending && (
-            <Spinner animation="border" size="sm" role="status" aria-hidden={true} className="align-baseline">
+            <Spinner color="white" size={16}>
               <span className="sr-only">Loading...</span>
             </Spinner>
           )}
