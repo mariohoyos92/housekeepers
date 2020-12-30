@@ -1,11 +1,10 @@
 import React, { useState, useRef } from "react";
 import Button from "../Button";
-import Steps from "../Steps";
 import Modal from "./Modal";
 
 export default {
   title: "Overlays/Modal",
-  component: Modal
+  component: Modal,
 };
 
 export const BasicModal = () => {
@@ -52,12 +51,10 @@ export const ModalWithHeader = () => {
         maxSize="5xl"
         headerOptions={{
           onClose: () => setIsOpen(false),
-          header: "This is a header"
+          header: "This is a header",
         }}
       >
-        <div className="p-6">
-          <Steps steps={["Hey", "there"]} currentStep="Hey" />
-        </div>
+        <div className="p-6">sdfsdf</div>
       </Modal>
     </div>
   );
