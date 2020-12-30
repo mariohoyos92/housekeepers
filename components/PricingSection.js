@@ -3,10 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Button from "./Button";
 import Link from "next/link";
 import { useAuth } from "../util/auth";
-import "../components/PricingSection.scss";
 
 function PricingSection(props) {
   const auth = useAuth();
@@ -41,13 +40,7 @@ function PricingSection(props) {
   ];
 
   return (
-    <section
-      bg={props.bg}
-      textColor={props.textColor}
-      size={props.size}
-      bgImage={props.bgImage}
-      bgImageOpacity={props.bgImageOpacity}
-    >
+    <section>
       <Container>
         <h1>Pricing</h1>
         <Row className="justify-content-center">
@@ -81,9 +74,7 @@ function PricingSection(props) {
                     href={auth.user ? `/purchase/${item.id}` : `/auth/signup?next=/purchase/${item.id}`}
                     passHref={true}
                   >
-                    <Button variant="primary" size="lg" block={true} className="mt-auto">
-                      Choose
-                    </Button>
+                    <Button>Choose</Button>
                   </Link>
                 </Card.Body>
               </Card>

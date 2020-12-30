@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+import Button from "./Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useAuth } from "../util/auth";
 import { useForm } from "react-hook-form";
@@ -74,7 +74,7 @@ function SettingsGeneral(props) {
         />
       </div>
 
-      <Button type="submit" className="mt-1" size="lg" disabled={pending}>
+      <Button type="submit" className="mt-4" disabled={pending}>
         <span>Save</span>
 
         {pending && (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import Modal from "./Modal";
+import Button from "./Button";
 import Spinner from "react-bootstrap/Spinner";
 import AuthSocial from "../components/AuthSocial";
 import { useAuth } from "../util/auth";
@@ -39,17 +39,21 @@ function ReauthModal(props) {
   };
 
   return (
-    <Modal show={true} onHide={props.onDone}>
-      <Modal.Header closeButton={true}>Please sign in again to complete this action</Modal.Header>
-      <Modal.Body>
+    <Modal
+      open={true}
+      onClose={props.onDone}
+      maxSize="xl"
+      headerOptions={{ header: "Please sign in again to complete this action", onClose: () => props.onDone() }}
+    >
+      <div className="pb-4">
         {formAlert && (
-          <div className="mb-2">
+          <div className="px-4 pt-4 mb-2">
             <Alert type={formAlert.type} header={formAlert.message} />
           </div>
         )}
 
         {props.provider === "password" && (
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="px-4 pt-4">
             <TextInput
               name="pass"
               type="password"
@@ -61,7 +65,7 @@ function ReauthModal(props) {
               })}
             />
 
-            <Button size="lg" variant="primary" block={true} type="submit" disabled={pending} className="mt-4">
+            <Button type="submit" disabled={pending} className="justify-center w-full mt-4">
               <span>Submit</span>
 
               {pending && (
@@ -92,7 +96,7 @@ function ReauthModal(props) {
             }}
           />
         )}
-      </Modal.Body>
+      </div>
     </Modal>
   );
 }

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { SigninValues } from "../AuthSection/AuthSection";
 import Spinner from "react-bootstrap/Spinner";
 import TextInput from "../TextInput";
+import Button from "../Button";
 
 type Props = {
   type: string;
@@ -143,11 +144,7 @@ const AuthForm: React.FC<Props> = ({ type, onAuth, onFormAlert, typeValues }) =>
         </div>
       )}
       <div>
-        <button
-          type="submit"
-          disabled={pending}
-          className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
+        <Button type="submit" disabled={pending} className="justify-center w-full">
           {!pending && <span>{typeValues.buttonText}</span>}
 
           {pending && (
@@ -155,7 +152,7 @@ const AuthForm: React.FC<Props> = ({ type, onAuth, onFormAlert, typeValues }) =>
               <span className="sr-only">Loading...</span>
             </Spinner>
           )}
-        </button>
+        </Button>
       </div>
     </form>
   );

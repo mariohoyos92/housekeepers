@@ -25,14 +25,11 @@ type Props = {
    * optional role
    */
   role?: string;
+
+  type?: string;
 };
 
-const getElementType = ({
-  as,
-  defaultAs,
-  href,
-  onClick
-}: Props): React.ElementType => {
+const getElementType = ({ as, defaultAs, href, onClick, type }: Props): React.ElementType => {
   if (as) {
     return as;
   }
@@ -41,7 +38,7 @@ const getElementType = ({
     return "a";
   }
 
-  if (onClick) {
+  if (type === "submit" || onClick) {
     return "button";
   }
 
@@ -60,7 +57,7 @@ const LinkBase = React.forwardRef<unknown, Props>((props, ref) => {
   const otherProps = {
     href,
     onClick,
-    ...others
+    ...others,
   };
 
   return (

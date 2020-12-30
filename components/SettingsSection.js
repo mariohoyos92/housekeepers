@@ -49,13 +49,7 @@ function SettingsSection(props) {
   };
 
   return (
-    <section
-      bg={props.bg}
-      textColor={props.textColor}
-      size={props.size}
-      bgImage={props.bgImage}
-      bgImageOpacity={props.bgImageOpacity}
-    >
+    <section>
       {reauthState.show && (
         <ReauthModal
           callback={reauthState.callback}
