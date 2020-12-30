@@ -26,7 +26,6 @@ When the above command completes you'll be able to view your website at `http://
 This project uses the following libraries and services:
 
 - Framework - [Next.js](https://nextjs.org)
-- UI Kit - [Bootstrap](https://react-bootstrap.github.io)
 - Authentication - [Firebase Auth](https://firebase.google.com/products/auth)
 - Database - TBD
 - Payments - [Stripe](https://stripe.com)
@@ -36,17 +35,6 @@ This project uses the following libraries and services:
 - Hosting - [Vercel](https://vercel.com)
 
 ## 📚 Guide
-
-<details>
-<summary><b>Styles</b></summary>
-<p>
-  You can edit Bootstrap SASS variables in the global stylesheet located at <code><a href="src/styles/global.scss">src/styles/global.scss</a></code>. Variables allow you to control global styles (like colors and fonts), as well as element specific styles (like button padding). Before overriding Bootstrap elements with custom style check the <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap docs</a> to see if you can do what need by tweaking a SASS variable.
-</p>
-<p>
-  Custom styles are located in their related component's directory. For example, if any custom style is applied to the Navbar component you'll find it in <code>src/components/Navbar.scss</code>. We ensure custom styles are scoped to their component by prepending the classname with the component name (such as <code>.Navbar__brand</code>). This ensures styles never affect elements in other components. If styles need to be re-used in multiple components consider creating a new component that encapsulates that style and structure and using that component in multiple places.
-</p>
-</details>
-
 <details>
 <summary><b>Routing</b></summary>
 <p>

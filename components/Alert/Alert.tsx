@@ -11,16 +11,21 @@ type Props = {
   type: AlertTypes;
   header: React.ReactNode;
   content?: React.ReactNode;
+  className?: string;
 };
 
-const Alert: React.FC<Props> = ({ header, content, type }) => {
+const Alert: React.FC<Props> = ({ header, content, type, className }) => {
   return (
     <div
-      className={cx("p-4 rounded-md", {
-        "bg-yellow-50": type === AlertTypes.warning,
-        "bg-red-50": type === AlertTypes.error,
-        "bg-green-50": type === AlertTypes.success,
-      })}
+      className={cx(
+        "p-4 rounded-md",
+        {
+          "bg-yellow-50": type === AlertTypes.warning,
+          "bg-red-50": type === AlertTypes.error,
+          "bg-green-50": type === AlertTypes.success,
+        },
+        className
+      )}
       style={{ maxWidth: "500px" }}
     >
       <div className="flex">

@@ -1,26 +1,25 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
 
 function SettingsNav(props) {
   return (
-    <Nav variant="pills" {...props}>
-      <Nav.Item>
+    <div {...props}>
+      <div>
         <Link href="/settings/general" passHref={true}>
-          <Nav.Link eventKey="general">General</Nav.Link>
+          <a eventKey="general">General</a>
         </Link>
-      </Nav.Item>
-      <Nav.Item>
+      </div>
+      <div>
         <Link href="/settings/password" passHref={true}>
-          <Nav.Link eventKey="password">Password</Nav.Link>
+          <a eventKey="password">Password</a>
         </Link>
-      </Nav.Item>
-      <Nav.Item>
+      </div>
+      <div>
         <Link href="/settings/billing" passHref={true}>
-          <Nav.Link eventKey="billing">Billing</Nav.Link>
+          <a eventKey="billing">Billing</a>
         </Link>
-      </Nav.Item>
-    </Nav>
+      </div>
+    </div>
   );
 }
 

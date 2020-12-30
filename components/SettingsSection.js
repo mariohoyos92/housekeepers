@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReauthModal from "../components/ReauthModal";
 import SettingsNav from "../components/SettingsNav";
-import Container from "react-bootstrap/Container";
 import SettingsGeneral from "../components/SettingsGeneral";
 import SettingsPassword from "../components/SettingsPassword";
 import SettingsBilling from "../components/SettingsBilling";
@@ -59,7 +58,7 @@ function SettingsSection(props) {
       )}
 
       <SettingsNav activeKey={section} className="justify-content-center" />
-      <Container
+      <div
         className="mt-5"
         style={{
           maxWidth: "450px",
@@ -76,7 +75,7 @@ function SettingsSection(props) {
         {section === "password" && <SettingsPassword onStatus={handleStatus} />}
 
         {section === "billing" && <SettingsBilling onStatus={handleStatus} />}
-      </Container>
+      </div>
     </section>
   );
 }

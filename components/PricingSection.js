@@ -1,8 +1,4 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import Button from "./Button";
 import Link from "next/link";
 import { useAuth } from "../util/auth";
@@ -41,47 +37,45 @@ function PricingSection(props) {
 
   return (
     <section>
-      <Container>
-        <h1>Pricing</h1>
-        <Row className="justify-content-center">
-          {items.map((item, index) => (
-            <Col md={12} lg={4} className="py-3 d-flex align-items-stretch" key={index}>
-              <Card className="w-100">
-                <Card.Body className="p-4 d-flex flex-column">
-                  <h5 className="mb-4 font-weight-bold">{item.name}</h5>
-                  <h1 className="mb-3 font-weight-bold">
-                    ${item.price}
-                    <small className="PricingSection__period">/mo</small>
-                  </h1>
+      <h1>Pricing</h1>
+      <div className="justify-content-center">
+        {items.map((item, index) => (
+          <div className="py-3 d-flex align-items-stretch" key={index}>
+            <div className="w-100">
+              <div className="p-4 d-flex flex-column">
+                <h5 className="mb-4 font-weight-bold">{item.name}</h5>
+                <h1 className="mb-3 font-weight-bold">
+                  ${item.price}
+                  <small className="PricingSection__period">/mo</small>
+                </h1>
 
-                  {item.description && <Card.Text className="mb-4">{item.description}</Card.Text>}
+                {item.description && <div className="mb-4">{item.description}</div>}
 
-                  {item.perks && (
-                    <Card.Text as="span" className="mt-2 mb-3">
-                      <ul className="list-unstyled">
-                        {item.perks.map((perk, index) => (
-                          <li className="py-1" key={index}>
-                            <i className="mr-3 fas fa-check text-success" />
-                            {perk}
-                          </li>
-                        ))}
-                      </ul>
-                      {item.description}
-                    </Card.Text>
-                  )}
+                {item.perks && (
+                  <div as="span" className="mt-2 mb-3">
+                    <ul className="list-unstyled">
+                      {item.perks.map((perk, index) => (
+                        <li className="py-1" key={index}>
+                          <i className="mr-3 fas fa-check text-success" />
+                          {perk}
+                        </li>
+                      ))}
+                    </ul>
+                    {item.description}
+                  </div>
+                )}
 
-                  <Link
-                    href={auth.user ? `/purchase/${item.id}` : `/auth/signup?next=/purchase/${item.id}`}
-                    passHref={true}
-                  >
-                    <Button>Choose</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+                <Link
+                  href={auth.user ? `/purchase/${item.id}` : `/auth/signup?next=/purchase/${item.id}`}
+                  passHref={true}
+                >
+                  <Button>Choose</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
