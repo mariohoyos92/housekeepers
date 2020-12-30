@@ -1,6 +1,6 @@
 import React from "react";
 export const TermsAndConditions = () => (
-  <section>
+  <section className="prose">
     <h1>Terms and Conditions</h1>
     <p>
       BY USING MEMBERSHIPACADEMY.COM, YOU ARE CONSENTING TO OUR TERMS AND CONDITIONS AS OUTLINED BELOW. To also review

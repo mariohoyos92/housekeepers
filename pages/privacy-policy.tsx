@@ -1,7 +1,7 @@
 import React from "react";
 
 const PrivacyPolicy = () => (
-  <section>
+  <section className="prose">
     <h1>Privacy Policy</h1>
     <p>
       Your privacy is very important to us. Accordingly, we have developed this policy in order for you to understand
